@@ -2,9 +2,23 @@ import { apiRequest } from '../../apiRequest';
 
 export const authTracking = async (username, password) => {
   const response = await apiRequest(
-    '5c70d95438000058453fccc8',
+    'api/usuario/login',
     'GET',
     { username, password },
+    {},
+    {}
+  );
+  return response.response ? response.response.data : response.data;
+};
+export const getEstados = async () => {
+  const response = await apiRequest('api/estados/', 'GET', {}, {}, {});
+  return response.response ? response.response.data : response.data;
+};
+export const getMunicipios = async idEstado => {
+  const response = await apiRequest(
+    `api/municipios/${idEstado}`,
+    'GET',
+    {},
     {},
     {}
   );

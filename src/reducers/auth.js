@@ -1,7 +1,7 @@
 import * as auth from '../actionTypes/auth';
 
 const initialState = {
-  user: localStorage.getItem('userid'),
+  user: 25,
   vistas: undefined
 };
 

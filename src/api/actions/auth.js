@@ -8,3 +8,19 @@ export const authTracking = (username, password) => async dispatch => {
     payload: result
   });
 };
+
+export const getEstados = () => async dispatch => {
+  const result = await services.getEstados();
+  dispatch({
+    type: actionTypes.ESTADOS,
+    payload: result
+  });
+};
+
+export const getMunicipios = idEstado => async dispatch => {
+  const result = await services.getMunicipios(idEstado);
+  dispatch({
+    type: actionTypes.MUNICIPIOS,
+    payload: result
+  });
+};
