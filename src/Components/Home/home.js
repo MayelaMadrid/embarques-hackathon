@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import Formulario from '../Formulario/formulario';
 import ListaEmbarques from '../Formulario/formulario';
 import Salidas from '../Formulario/formulario';
+import Maps from '../Maps/maps';
 class Home extends Component {
   state = {
     username: '',
@@ -26,6 +27,10 @@ class Home extends Component {
       home: name
     });
   };
+  logOut = () => {
+    let nl = null;
+    this.props.logOut(nl);
+  };
   render() {
     console.log(this.state.home);
     let body;
@@ -37,8 +42,8 @@ class Home extends Component {
       body = <Salidas />;
     } else {
       body = (
-        <Carousel>
-          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1" />
+        <Carousel autoplay autoplayInterval={1000}>
+          <img src="https://www.google.com.mx/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjzv5jDj9LgAhUpi1QKHYUFAawQjRx6BAgBEAU&url=https%3A%2F%2Fwww.purina.es%2Fgatos%2Fetapas-clave-de-su-vida%2Fgatitos%2Fnuevo-gatito-en-casa&psig=AOvVaw0THCzBw0a0tkGX1Wmw_tbF&ust=1551020436557136" />
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2" />
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3" />
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4" />
@@ -50,9 +55,14 @@ class Home extends Component {
     return (
       <div className="home">
         <div className="header">
-          <div className="logo" onClick={ ev => {this.changeVista('home');}}>
+          <div
+            className="logo"
+            onClick={ev => {
+              this.changeVista('home');
+            }}
+          >
             <label className="label">
-            <i className="fas fa-truck-moving" /> Tracking Trucks
+              <i className="fas fa-truck-moving" /> Tracking Trucks
             </label>
           </div>
           <div className="opciones">
@@ -84,7 +94,7 @@ class Home extends Component {
               {' '}
               <label>Salida de embarque</label>
             </div>
-            <div className="lo">
+            <div className="lo" onClick={this.logOut}>
               <label>
                 Cerrar sesión <i className="fas fa-sign-out-alt" />
               </label>
@@ -92,6 +102,7 @@ class Home extends Component {
           </div>
         </div>
         <div className="body">{body}</div>
+        <Maps />
       </div>
     );
   }
@@ -113,6 +124,9 @@ const mapDispatchToProps = dispatch => {
     },
     vistasHome: vista => {
       dispatch(login.vistasHome(vista));
+    },
+    logOut: nl => {
+      dispatch(login.logout(nl));
     }
   };
 };

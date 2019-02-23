@@ -12,11 +12,11 @@ const buttonStyle = {
   fontWeight: 'bold',
   width: '80%',
   backgroundColor: '#5353c5'
-}
+};
 
 const inputStyle = {
   borderRadius: '5px'
-}
+};
 
 class Login extends Component {
   state = {
@@ -119,9 +119,10 @@ class Login extends Component {
                 type="password"
                 variant="outlined"
                 onKeyPress={this.onEnter}
-                style = {inputStyle}
+                style={inputStyle}
               />
-            </div><br/>
+            </div>
+            <br />
             <div>
               <Button
                 variant="contained"

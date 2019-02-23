@@ -11,7 +11,7 @@ export const setUser = userid => {
 export const logout = () => {
   localStorage.clear();
   return {
-    type: auth.LOGOUT,
+    type: auth.SET_USER,
     payload: undefined
   };
 };
