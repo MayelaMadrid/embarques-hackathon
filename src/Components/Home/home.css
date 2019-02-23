@@ -1,0 +1,64 @@
+.home {
+  width: 100% !important;
+  height: 100vh !important;
+  background: #36d1dc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #5b86e5,
+    #36d1dc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #5b86e5,
+    #36d1dc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  grid-template-columns: 30% 70%;
+  grid-template-areas: 'HEADER' 'BODY';
+}
+.header {
+  grid-area: HEADER;
+  background: transparent;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.opciones {
+  width: 60vw;
+  display: flex;
+  align-content: center;
+}
+.opcion {
+  width: 15vw;
+}
+.body {
+  width: 100%;
+  height: 60vh;
+  grid-area: BODY;
+}
+.lo {
+  padding-left: 60px;
+}
+.logo {
+  font-family: 'Paytone One', sans-serif;
+  width: 15vw;
+  padding-left: 5vw;
+  text-align: left;
+}
+
+.bullet {
+  display: inline-block;
+  margin: 0 2px;
+  transform: scale(0.8);
+}
+.pos {
+  margin-bottom: 12px;
+}
+.img {
+  z-index: -1;
+}

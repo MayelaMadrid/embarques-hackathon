@@ -1,0 +1,28 @@
+.login-form {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 30% !important;
+  height: 50vh !important;
+  background: black;
+  opacity: 0.8;
+}
+
+.txt-login {
+  width: 320px;
+  color: white;
+  background: white;
+}
+.login {
+  width: 100% !important;
+  height: 100vh !important;
+  background-image: url('img/truck.png');
+}
+.oscuro {
+  width: 100% !important;
+  height: 100vh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
