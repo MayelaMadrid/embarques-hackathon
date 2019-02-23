@@ -24,3 +24,7 @@ export const getMunicipios = async idEstado => {
   );
   return response.response ? response.response.data : response.data;
 };
+export const getTrailers = async () => {
+  const response = await apiRequest('api/trailer/', 'GET');
+  return response.response ? response.response.data : response.data;
+};

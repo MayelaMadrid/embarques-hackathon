@@ -9,19 +9,21 @@
     padding: 0.5% 0 0 0;
     font-size: 20px;
     font-weight: bold;
-    width: 90%;
+    width: 92%;
     height: 6%;
-    background-color: #9e9cd6;
+    border:1px #9e9cd6 solid;
     text-align:center;
     border-radius: 20px;
-    color: #fff;
+    color: #9e9cd6;
     margin: 0 auto;
 }
 
 .formBody {
+    padding: 1% 1% 1% 1%;
     margin: 1% auto;
-    background-color: black;
-    min-height: 1%;
+    border:1px #9e9cd6 solid;
+    min-height: 10%;
     width: 90%;
     color: white;
+    border-radius: 20px;
 }

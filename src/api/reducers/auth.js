@@ -1,7 +1,8 @@
 import * as actionTypes from '../actionTypes/auth';
 
 const initialState = {
-  auth: undefined
+  auth: undefined,
+  trailerList: []
 };
 
 export default function callCenter(state = initialState, action) {
@@ -10,6 +11,11 @@ export default function callCenter(state = initialState, action) {
     case actionTypes.AUTH:
       newState = Object.assign({}, state, {
         auth: action.payload
+      });
+      return newState;
+    case actionTypes.TRAILERS:
+      newState = Object.assign({}, state, {
+        trailerList: action.payload
       });
       return newState;
     default:
