@@ -31,7 +31,6 @@ class Home extends Component {
     let body;
     if (this.state.home === 'registro') {
       body = <Formulario />;
-      console.log('sdf');
     } else if (this.state.home === 'revisar') {
       body = <ListaEmbarques />;
     } else if (this.state.home === 'salidas') {
@@ -51,9 +50,9 @@ class Home extends Component {
     return (
       <div className="home">
         <div className="header">
-          <div className="logo">
+          <div className="logo" onClick={ ev => {this.changeVista('home');}}>
             <label className="label">
-              Tracking Trunks <i className="fas fa-truck-moving" />
+            <i className="fas fa-truck-moving" /> Tracking Trucks
             </label>
           </div>
           <div className="opciones">

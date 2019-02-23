@@ -5,7 +5,20 @@
   justify-content: center;
   width: 30% !important;
   height: 50vh !important;
-  background: black;
+  background-color: #6B7890;
+  opacity: 0.85;
+  border-radius: 10px;
+  border: 1px solid #5a5a5a;
+  box-shadow: 0 0 10px 0;
+}
+
+.login-form:hover {
+  transition: 1s;
+  opacity: 1.0;
+}
+
+.login-form:not(hover) {
+  transition: 1.5s;
   opacity: 0.8;
 }
 
@@ -14,15 +27,25 @@
   color: white;
   background: white;
 }
+
 .login {
   width: 100% !important;
   height: 100vh !important;
-  background-image: url('img/truck.png');
+  background-image: url('img/road.jpeg');
+  background-size: cover;                      /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;  
 }
-.oscuro {
+
+.login-background {
   width: 100% !important;
   height: 100vh !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align:center;
+}
+
+.login-text {
+  color: white;
 }

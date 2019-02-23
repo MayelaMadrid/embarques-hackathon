@@ -7,6 +7,17 @@ import * as login from '../../actions/auth';
 import './login.css';
 import Button from '@material-ui/core/Button';
 
+const buttonStyle = {
+  color: '#fff',
+  fontWeight: 'bold',
+  width: '80%',
+  backgroundColor: '#5353c5'
+}
+
+const inputStyle = {
+  borderRadius: '5px'
+}
+
 class Login extends Component {
   state = {
     username: '',
@@ -81,9 +92,10 @@ class Login extends Component {
     }
     return (
       <div className="login">
-        <div className="oscuro">
+        <div className="login-background">
           <div className="login-form">
             <div>
+              <h2 className="login-text">INICIO DE SESIÓN</h2>
               <TextField
                 id="outlined-username"
                 label="Usuario"
@@ -93,6 +105,7 @@ class Login extends Component {
                 margin="normal"
                 variant="outlined"
                 onKeyPress={this.onEnter}
+                style={inputStyle}
               />
             </div>
             <div>
@@ -103,15 +116,18 @@ class Login extends Component {
                 value={this.state.password}
                 onChange={ev => this.handleChange(ev, 'password')}
                 margin="normal"
+                type="password"
                 variant="outlined"
                 onKeyPress={this.onEnter}
+                style = {inputStyle}
               />
-            </div>
+            </div><br/>
             <div>
               <Button
                 variant="contained"
                 color="primary"
                 onClick={this.onLogin}
+                style={buttonStyle}
               >
                 Iniciar Sesión
               </Button>
