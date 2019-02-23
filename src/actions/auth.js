@@ -15,3 +15,10 @@ export const logout = () => {
     payload: undefined
   };
 };
+
+export const vistasHome = vista => {
+  return {
+    type: auth.VISTAS_HOME,
+    payload: vista
+  };
+};

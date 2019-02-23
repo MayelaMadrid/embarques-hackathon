@@ -4,6 +4,7 @@ import Home from './Components/Home/home';
 import { connect } from 'react-redux';
 import './App.css';
 import Login from './Components/Login/login';
+import formulario from './Components/Formulario/formulario';
 
 class App extends Component {
   render() {
@@ -18,7 +19,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/formulario" component={formulario} />
         </Switch>
         {this.props.children}
       </div>

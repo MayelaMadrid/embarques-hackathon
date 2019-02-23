@@ -1,7 +1,8 @@
 import * as auth from '../actionTypes/auth';
 
 const initialState = {
-  user: localStorage.getItem('userid')
+  user: localStorage.getItem('userid'),
+  vistas: undefined
 };
 
 function Auth(state = initialState, action) {
@@ -15,7 +16,10 @@ function Auth(state = initialState, action) {
       return Object.assign({}, state, {
         token: undefined
       });
-
+    case auth.VISTAS_HOME:
+      return Object.assign({}, state, {
+        vistas: action.payload
+      });
     default:
       return state;
   }
