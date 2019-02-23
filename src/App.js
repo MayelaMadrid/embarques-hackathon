@@ -19,6 +19,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/formulario" component={formulario} />
         </Switch>
         {this.props.children}

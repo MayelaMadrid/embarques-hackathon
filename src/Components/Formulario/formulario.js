@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 
 import './formulario.css';
@@ -8,6 +7,9 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+import Trailer from '../Trailer/trailer';
+
 function getSteps() {
   return [
     'Información del embarque',
@@ -19,7 +21,7 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return 'Información del embarque';
+      return <Trailer/>
     case 1:
       return 'Seleccione origen y destino.';
     case 2:
@@ -28,6 +30,7 @@ function getStepContent(step) {
       return 'Unknown step';
   }
 }
+
 class Formulario extends Component {
   state = {
     activeStep: 0,
@@ -66,7 +69,6 @@ class Formulario extends Component {
           {steps.map((label, index) => {
             const props = {};
             const labelProps = {};
-
             return (
               <Step key={label} {...props}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
@@ -85,30 +87,31 @@ class Formulario extends Component {
               </Button>
             </div>
           ) : (
-            <div>
-              <Typography className="{classes.instructions}">
-                {getStepContent(activeStep)}
-              </Typography>
               <div>
-                <Button
-                  disabled={activeStep === 0}
-                  onClick={this.handleBack}
-                  className="{classes.button}"
-                >
-                  Anterior
+                <Typography className="{classes.instructions}">
+                  {getStepContent(activeStep)}
+                </Typography>
+                <div>
+                  <br/>
+                  <Button
+                    disabled={activeStep === 0}
+                    onClick={this.handleBack}
+                    className="{classes.button}"
+                  >
+                    Anterior
                 </Button>
 
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={this.handleNext}
-                  className="{classes.button}"
-                >
-                  {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente'}
-                </Button>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={this.handleNext}
+                    className="{classes.button}"
+                  >
+                    {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente'}
+                  </Button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </div>
       </div>
     );
