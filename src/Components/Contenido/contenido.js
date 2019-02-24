@@ -5,13 +5,23 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autosuggest from 'react-autosuggest';
 import img from '../Login/img/road.jpeg';
 import * as auth from '../../api/actions/auth';
 import * as saving from '../../actions/auth';
 import './contenido.css';
+
+import img1 from './img/1.jpg';
+import img2 from './img/2.jpg';
+import img3 from './img/3.jpg';
+import img4 from './img/4.jpg';
+import img5 from './img/5.jpeg';
+import img6 from './img/6.jpg';
+import img7 from './img/7.jpg';
+import img8 from './img/8.jpg';
+import img9 from './img/9.jpg';
+import img10 from './img/10.jpg';
 
 class Contenido extends Component {
   state = {
@@ -25,6 +35,22 @@ class Contenido extends Component {
     this.props.getAgentes();
     this.props.getProductos();
   }
+
+  productImage = (index) => {
+    switch(index) {
+      case 0: return img1; break;
+      case 1: return img2; break;
+      case 2: return img3; break;
+      case 3: return img4; break;
+      case 4: return img5; break;
+      case 5: return img6; break;
+      case 6: return img7; break;
+      case 7: return img8; break;
+      case 8: return img9; break;
+      case 9: return img10; break;
+    }
+  };
+
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
@@ -144,7 +170,7 @@ class Contenido extends Component {
                   <CardActionArea>
                     <CardMedia
                       style={styles.media}
-                      image={img}
+                      image={this.productImage(index)}
                       title="Contemplative Reptile"
                     />
                     <CardContent>
