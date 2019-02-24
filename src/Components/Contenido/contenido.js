@@ -16,7 +16,9 @@ class Contenido extends Component {
   state = {
     value: '',
     suggestions: [],
-    agente: ''
+    agente: '',
+    productosSelected: [],
+    cantidad: []
   };
   componentDidMount() {
     this.props.getAgentes();
@@ -66,6 +68,26 @@ class Contenido extends Component {
     return suggestion.nombreCompleto;
   };
 
+  handleChange = event => {
+    let pro = this.state.productosSelected;
+    let sel = this.state.cantidad;
+    if (event.target.value > 0) {
+      let approved = pro.filter(stu => stu.nombre === event.target.name);
+      for (let i = 0; i < approved.length; i++) {
+        var index = pro.indexOf(approved[i]);
+        pro.splice(index, 1);
+      }
+
+      console.log(pro);
+      pro.push({
+        cantidad: event.target.value,
+        id: event.target.id,
+        nombre: event.target.name
+      });
+      this.setState({ productosSelected: pro });
+    }
+  };
+
   renderSuggestion = suggestion => <div>{suggestion.nombreCompleto}</div>;
   render() {
     const styles = {
@@ -93,6 +115,7 @@ class Contenido extends Component {
       onChange: this.onChange
     };
     let productos = this.props.productos;
+    console.log(this.state.productosSelected);
     return (
       <div className="contenido">
         <div className="as">
@@ -112,38 +135,42 @@ class Contenido extends Component {
           </div>
         </div>
         <div className="formContenido">
-          <Card style={styles.card}>
-            <CardActionArea>
-              <CardMedia
-                style={styles.media}
-                image={img}
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <h2 style={{ color: 'black', alignContent: 'flex-end' }}>
-                  Hojuelas
-                </h2>
-                <TextField
-                  id="outlined-number"
-                  label="Number"
-                  value={this.state.age}
-                  onChange={this.handleChange('age')}
-                  type="number"
-                  className="{classes.textField}"
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                  margin="normal"
-                  variant="outlined"
-                />
-              </CardContent>
-            </CardActionArea>
-            <CardActions style={{ justifyContent: 'center' }}>
-              <Button size="large" style={styles.acceptButton}>
-                Seleccionar
-              </Button>
-            </CardActions>
-          </Card>
+          {productos ? (
+            productos.map((i, k) => {
+              return (
+                <Card style={styles.card} key={k}>
+                  <CardActionArea>
+                    <CardMedia
+                      style={styles.media}
+                      image={img}
+                      title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <h2 style={{ color: 'black', alignContent: 'flex-end' }}>
+                        {i.nombre}
+                      </h2>
+                      <TextField
+                        id={i.id}
+                        label="No. Tarimas"
+                        name={i.nombre}
+                        onChange={this.handleChange}
+                        type="number"
+                        className="{classes.textField}"
+                        InputLabelProps={{
+                          shrink: true
+                        }}
+                        margin="normal"
+                        variant="outlined"
+                      />
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions style={{ justifyContent: 'center' }} />
+                </Card>
+              );
+            })
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     );
