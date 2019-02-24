@@ -20,7 +20,7 @@ class Embarque extends Component {
   componentDidMount() {
     this.props.getEmbarque();
   }
-  seleccionTrailer = ev => {
+  seleccionEmbarque = ev => {
     this.setState({ seleccionado: ev.target.id });
     this.props.guardarEmbarque(ev.target.id);
   };
@@ -77,13 +77,13 @@ class Embarque extends Component {
                       <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
                         <i className="fas fa-globe-americas" /> Origen:{' '}
                         <span style={{ color: '#2a122a' }}>
-                          {label.nombreMunicipioOrigen}
+                          {label.municipioOrigen.nombre}
                         </span>
                       </h4>
                       <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
                         <i class="fas fa-globe-africa" /> Destino{' '}
                         <span style={{ color: '#2a122a' }}>
-                          {label.nombreMunicipioDestino}
+                          {label.municipioDestino.nombre}
                         </span>
                       </h4>
                     </CardContent>
