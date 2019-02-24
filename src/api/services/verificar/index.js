@@ -58,3 +58,8 @@ export const getEmbarque = async () => {
   const response = await apiRequest(`/api/embarque/1`, 'GET', {}, {}, {});
   return response.response ? response.response.data : response.data;
 };
+
+export const getDispositivo = async () => {
+  const response = await apiRequest(`/api/dispositivo/1`, 'GET', {}, {}, {});
+  return response.response ? response.response.data : response.data;
+};

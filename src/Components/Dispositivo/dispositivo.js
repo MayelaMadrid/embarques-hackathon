@@ -17,7 +17,7 @@ class Dispositivo extends Component {
   };
 
   componentDidMount() {
-    this.props.getEmbarque();
+    this.props.getDispositivo();
   }
 
   render() {
@@ -42,11 +42,11 @@ class Dispositivo extends Component {
     return (
       <div className="transportistaBackground">
         <div className="formTitle">
-          <i className="fas fa-truck"></i> Seleccione un Embarque
+          <i class="fab fa-raspberry-pi"></i> Seleccione un Dispositivo
         </div>
         <div className="formBody">
-          {this.props.embarques?
-          this.props.embarques.map((label, index) => {
+          {this.props.dispositivos?
+          this.props.dispositivos.map((label, index) => {
             return (
               <Card style={styles.card}>
                 <CardActionArea>
@@ -88,14 +88,14 @@ class Dispositivo extends Component {
 
 const mapStateToProps = state => {  
   return {
-    embarques: state.Api.Auth.embarques
+    dispositivos: state.Api.Auth.dispositivos
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getEmbarque: () => {
-        return auth.getEmbarque()(dispatch);
+    getDispositivo: () => {
+        return auth.getDispositivo()(dispatch);
     }
   };
 };

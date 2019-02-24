@@ -6,3 +6,4 @@ export const AGENTES = 'Api/login/AGENTES';
 export const PRODUCTOS = 'Api/login/PRODUCTOS';
 export const TRANSPORTISTA = 'Api/login/TRANSPORTISTA';
 export const EMBARQUE = 'Api/login/EMBARQUE';
+export const DISPOSITIVO = 'Api/login/DISPOSITIVO';
