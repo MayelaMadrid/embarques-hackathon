@@ -23,10 +23,11 @@ class ListaEmbarques extends Component {
   componentDidMount() {
     this.props.getEmbarque();
   }
-  openModal = (ev, origen, destino, detalle) => {
+  openModal = (ev, origen, destino, detalle, id) => {
     this.setState({ origen: origen });
     this.setState({ destino: destino });
     this.setState({ detalle: detalle });
+    this.setState({ id: id });
     this.setState({ modal: true });
   };
 
@@ -126,7 +127,8 @@ class ListaEmbarques extends Component {
                               ev,
                               label.municipioOrigen,
                               label.municipioDestino,
-                              label.embarqueDetalles
+                              label.embarqueDetalles,
+                              label.id
                             );
                           }}
                         >
@@ -146,6 +148,7 @@ class ListaEmbarques extends Component {
             origen={this.state.origen}
             destino={this.state.destino}
             detalles={this.state.detalle}
+            id={this.state.id}
             sendBack={this.getBack}
           />
         )}
@@ -163,7 +166,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getEmbarque: () => {
-      return auth.getEmbarque()(dispatch);
+      return auth.getEmbarque(3)(dispatch);
     }
   };
 };

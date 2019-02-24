@@ -70,8 +70,8 @@ export const guardarEmbarque = async (
   return response.response ? response.response.data : response.data;
 };
 
-export const getEmbarque = async () => {
-  const response = await apiRequest(`/api/embarque/1`, 'GET', {}, {}, {});
+export const getEmbarque = async s => {
+  const response = await apiRequest(`/api/embarque/${s}`, 'GET', {}, {}, {});
   return response.response ? response.response.data : response.data;
 };
 
