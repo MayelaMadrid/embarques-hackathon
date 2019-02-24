@@ -22,3 +22,15 @@ export const vistasHome = vista => {
     payload: vista
   };
 };
+export const ORIGEN = vista => {
+  return {
+    type: auth.ORIGEN,
+    payload: vista
+  };
+};
+export const DESTINO = vista => {
+  return {
+    type: auth.DESTINO,
+    payload: vista
+  };
+};

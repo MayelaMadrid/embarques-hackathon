@@ -2,7 +2,8 @@ import * as actionTypes from '../actionTypes/auth';
 
 const initialState = {
   auth: undefined,
-  trailerList: []
+  estados: undefined,
+  municipios: undefined
 };
 
 export default function callCenter(state = initialState, action) {
@@ -13,9 +14,14 @@ export default function callCenter(state = initialState, action) {
         auth: action.payload
       });
       return newState;
-    case actionTypes.TRAILERS:
+    case actionTypes.ESTADOS:
       newState = Object.assign({}, state, {
-        trailerList: action.payload
+        estados: action.payload
+      });
+      return newState;
+    case actionTypes.MUNICIPIOS:
+      newState = Object.assign({}, state, {
+        municipios: action.payload
       });
       return newState;
     default:

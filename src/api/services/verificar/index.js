@@ -3,8 +3,8 @@ import { apiRequest } from '../../apiRequest';
 export const authTracking = async (username, password) => {
   const response = await apiRequest(
     'api/usuario/login',
-    'GET',
-    { username, password },
+    'POST',
+    { username: username, password: password },
     {},
     {}
   );
