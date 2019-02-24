@@ -6,11 +6,19 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import * as saving from '../../actions/auth';
-import img from '../Login/img/road.jpeg';
-// import * as auth from '../../api/actions/auth';
 import './trailer.css';
+
+import img1 from './img/car-carrier-truck-clipart-13.png';
+import img2 from './img/Cargo-Truck-PNG-Transparent-Image.png';
+import img3 from './img/colonialtruckofrichmond-type-tipper.png';
+import img4 from './img/lorry-truck-png-4.png';
+import img5 from './img/Mack_cars_3.png';
+import img6 from './img/truck_PNG16212.png';
+import img7 from './img/truck_PNG16269.png';
+import img8 from './img/truck_PNG16271.png';
+import img9 from './img/truck-hd-png-cargo-truck-png-3136.png';
+import img10 from './img/Truck-PNG-Free-Download.png';
 
 class Trailer extends Component {
   state = {
@@ -23,6 +31,21 @@ class Trailer extends Component {
     this.setState({ seleccionado: ev.target.id });
     this.props.guardarTrailer(ev.target.id);
   };
+  trailerImage = (index) => {
+    switch(index) {
+      case 0: return img1; break;
+      case 1: return img2; break;
+      case 2: return img3; break;
+      case 3: return img4; break;
+      case 4: return img5; break;
+      case 5: return img6; break;
+      case 6: return img7; break;
+      case 7: return img8; break;
+      case 8: return img9; break;
+      case 9: return img10; break;
+    }
+  };
+
   render() {
     let trailers = this.props.trailerList;
     const styles = {
@@ -69,7 +92,7 @@ class Trailer extends Component {
                   <CardActionArea>
                     <CardMedia
                       style={styles.media}
-                      image={img}
+                      image={this.trailerImage(index)}
                       title="Contemplative Reptile"
                     />
                     <CardContent>
