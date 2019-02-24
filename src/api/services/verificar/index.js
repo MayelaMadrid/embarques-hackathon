@@ -24,3 +24,27 @@ export const getMunicipios = async idEstado => {
   );
   return response.response ? response.response.data : response.data;
 };
+export const getTrailers = async idEstado => {
+  const response = await apiRequest(
+    `api/trailer/${idEstado}`,
+    'GET',
+    {},
+    {},
+    {}
+  );
+  return response.response ? response.response.data : response.data;
+};
+export const getAgentesExportacion = async () => {
+  const response = await apiRequest(
+    `api/agente-exportacion/`,
+    'GET',
+    {},
+    {},
+    {}
+  );
+  return response.response ? response.response.data : response.data;
+};
+export const getProductos = async () => {
+  const response = await apiRequest(`/api/productos/1`, 'GET', {}, {}, {});
+  return response.response ? response.response.data : response.data;
+};

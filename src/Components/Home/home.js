@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Formulario from '../Formulario/formulario';
 import ListaEmbarques from '../Formulario/formulario';
-import Salidas from '../Formulario/formulario';
+import Salidas from '../Salidas/salidas';
 import Maps from '../Maps/maps';
 class Home extends Component {
   state = {
