@@ -178,7 +178,6 @@ class Contenido extends Component {
 }
 
 const mapStateToProps = state => {
-  debugger;
   return {
     agentes: state.Api.Auth.agentes,
     productos: state.Api.Auth.productos

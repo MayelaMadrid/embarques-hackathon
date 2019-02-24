@@ -54,3 +54,11 @@ export const getTransportista = () => async dispatch => {
     payload: result
   });
 };
+
+export const getEmbarque = () => async dispatch => {
+  const result = await services.getEmbarque();
+  dispatch({
+    type: actionTypes.EMBARQUE,
+    payload: result
+  });
+};

@@ -8,16 +8,16 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import img from '../Login/img/road.jpeg';
 import * as auth from '../../api/actions/auth';
-import './transportista.css';
+import './embarque.css';
 
-class Transportista extends Component {
+class Embarque extends Component {
 
   state = {
-    transportistas: []
+    embarques: []
   };
 
   componentDidMount() {
-    this.props.getTransportista();
+    this.props.getEmbarque();
   }
 
   render() {
@@ -42,11 +42,11 @@ class Transportista extends Component {
     return (
       <div className="transportistaBackground">
         <div className="formTitle">
-          <i className="fas fa-running"></i> Seleccione un Transportista
+          <i className="fas fa-truck"></i> Seleccione un Embarque
         </div>
         <div className="formBody">
-          {this.props.transportistas?
-          this.props.transportistas.map((label, index) => {
+          {this.props.embarques?
+          this.props.embarques.map((label, index) => {
             return (
               <Card style={styles.card}>
                 <CardActionArea>
@@ -56,9 +56,18 @@ class Transportista extends Component {
                     title="Contemplative Reptile"
                   />
                   <CardContent>
-                    <h2 style={{ color: 'black', alignContent: 'flex-end' }}>
-                      {label.nombre}
-                    </h2>
+                    <h3 style={{ color: 'purple', alignContent: 'flex-end' }}>
+                      <i className="fab fa-slack-hash"></i> Folio: <span style={{color: '#2a122a'}}>{label.id}</span>
+                    </h3>
+                    <h3 style={{ color: 'purple', alignContent: 'flex-end' }}>
+                      <i className="fas fa-truck-moving"></i> Transporte: <span style={{color: '#2a122a'}}>{label.idTrailer}</span>
+                    </h3>
+                    <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
+                      <i className="fas fa-globe-americas"></i> Origen: <span style={{color: '#2a122a'}}>{label.nombreMunicipioOrigen}</span> 
+                    </h4>
+                    <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
+                      <i class="fas fa-globe-africa"></i> Destino <span style={{color: '#2a122a'}}>{label.nombreMunicipioDestino}</span>
+                    </h4>
                   </CardContent>
                 </CardActionArea>
                 <CardActions style={{ justifyContent: 'center' }}>
@@ -79,14 +88,14 @@ class Transportista extends Component {
 
 const mapStateToProps = state => {  
   return {
-    transportistas: state.Api.Auth.transportistas
+    embarques: state.Api.Auth.embarques
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getTransportista: () => {
-        return auth.getTransportista()(dispatch);
+    getEmbarque: () => {
+        return auth.getEmbarque()(dispatch);
     }
   };
 };
@@ -94,4 +103,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Transportista);
+)(Embarque);

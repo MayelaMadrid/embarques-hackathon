@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import * as auth from '../../api/actions/auth';
-import { Redirect } from 'react-router-dom';
 import * as login from '../../actions/auth';
 import './home.css';
-import img from './img/chofer.jpg';
 import Carousel from 'nuka-carousel';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Formulario from '../Formulario/formulario';
 import ListaEmbarques from '../Formulario/formulario';
 import Salidas from '../Salidas/salidas';
-import Maps from '../Maps/maps';
 class Home extends Component {
   state = {
     username: '',
@@ -72,7 +66,7 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label>Registrar embarque</label>
+              <label><i className="fas fa-clipboard-list"></i> Registrar embarque</label>
             </div>
             <div
               className="opcion"
@@ -81,7 +75,7 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label>Revisar embarques</label>
+              <label><i className="fas fa-tasks"></i> Revisar embarques</label>
             </div>
             <div
               className="opcion"
@@ -90,11 +84,11 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label>Salida de embarque</label>
+              <label><i className="fas fa-truck-loading"></i> Salida de embarque</label>
             </div>
             <div className="lo" onClick={this.logOut}>
               <label>
-                Cerrar sesión <i className="fas fa-sign-out-alt" />
+                <i className="fas fa-sign-out-alt"></i> Cerrar sesión
               </label>
             </div>
           </div>

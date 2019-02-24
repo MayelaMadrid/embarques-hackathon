@@ -53,3 +53,8 @@ export const getTransportista = async () => {
   const response = await apiRequest(`/api/transportistas/1`, 'GET', {}, {}, {});
   return response.response ? response.response.data : response.data;
 };
+
+export const getEmbarque = async () => {
+  const response = await apiRequest(`/api/embarque/1`, 'GET', {}, {}, {});
+  return response.response ? response.response.data : response.data;
+};
