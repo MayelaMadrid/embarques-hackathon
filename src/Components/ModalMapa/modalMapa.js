@@ -47,6 +47,9 @@ class ModalMapa extends Component {
     this.setState({ open: false });
   };
   componentDidMount() {
+    console.log(this.props.id);
+  }
+  componentWillMount() {
     const lat = firebase
       .database()
       .ref()
