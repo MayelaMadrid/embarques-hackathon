@@ -46,3 +46,11 @@ export const getProductos = () => async dispatch => {
     payload: result
   });
 };
+
+export const getTransportista = () => async dispatch => {
+  const result = await services.getTransportista();
+  dispatch({
+    type: actionTypes.TRANSPORTISTA,
+    payload: result
+  });
+};
