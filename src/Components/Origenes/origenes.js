@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import * as auth from '../../api/actions/auth';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import * as login from '../../actions/auth';
 import Autosuggest from 'react-autosuggest';
-import Select from '@material-ui/core/Select';
 import ASMO from '../ASMO/asmo';
 import ASED from '../ASED/ased';
 import ASMD from '../ASMD/asmd';
 
 import Maps from '../Maps/maps';
 import './origenes.css';
-import Button from '@material-ui/core/Button';
 
 class Origenes extends Component {
+
   state = {
     origen: '',
     destino: '',
@@ -27,6 +21,7 @@ class Origenes extends Component {
     value: '',
     suggestions: []
   };
+
   componentDidMount() {
     this.props.onLoadEstados();
   }
@@ -89,25 +84,25 @@ class Origenes extends Component {
   renderSuggestion = suggestion => <div>{suggestion.estado}</div>;
 
   render() {
+
     let estados = this.props.estados;
 
     const { value, suggestions } = this.state;
 
     const inputProps = {
-      placeholder: 'Ingresa una busqueda',
+      placeholder: 'Estado',
       value,
       onChange: this.onChange
     };
     return (
       <div className="origenes-principal">
         <div className="origenes">
-          <div className="">
-            <div>
-              <label>Seleccione el lugar de origen</label>
+          <div>
+            <div className="formTitle2">
+              <label><i className="fas fa-globe-americas"></i> Seleccione el lugar de origen</label>
             </div>
             <div className="origen">
-              <div>
-                {' '}
+              <div className="inputSeparator">
                 <Autosuggest
                   suggestions={suggestions}
                   onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -118,23 +113,23 @@ class Origenes extends Component {
                   inputProps={inputProps}
                 />
               </div>
-              <div>
+              <div className="inputSeparator">
                 <ASMO sendAsmo={this.getAsmo} />
               </div>
             </div>
           </div>
-          <div className="">
-            <div>
-              <label>Seleccione el lugar de destino</label>
+          <div>
+            <div className="formTitle2">
+              <label><i className="fas fa-globe-africa"></i> Seleccione el lugar de destino</label>
             </div>
             <div className="destino">
-              <div>
+              <div className="inputSeparator">
                 <ASED />
               </div>
-              <div>
+              <div className="inputSeparator">
                 <ASMD sendAsmd={this.getAsmd} />
               </div>
-            </div>{' '}
+            </div>
           </div>
         </div>
         <div className="mapa-form">

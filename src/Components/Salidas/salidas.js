@@ -8,7 +8,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import Trailer from '../Trailer/trailer';
+import Transportista from '../Transportista/transportista';
 import Origenes from '../Origenes/origenes';
 
 function getSteps() {
@@ -20,7 +20,7 @@ function getStepContent(step) {
     case 0:
       return <Origenes />;
     case 1:
-      return <Origenes />;
+      return <Transportista />;
     case 2:
       return <Origenes />;
     default:

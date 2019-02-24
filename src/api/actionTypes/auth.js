@@ -4,3 +4,4 @@ export const ESTADOS = 'Api/login/ESTADOS';
 export const TRAILERS = 'Api/login/TRAILERS';
 export const AGENTES = 'Api/login/AGENTES';
 export const PRODUCTOS = 'Api/login/PRODUCTOS';
+export const TRANSPORTISTA = 'Api/login/TRANSPORTISTA';

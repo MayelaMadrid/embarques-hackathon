@@ -6,7 +6,8 @@ const initialState = {
   municipios: undefined,
   trailers: undefined,
   agentes: undefined,
-  productos: undefined
+  productos: undefined,
+  transportistas: undefined
 };
 
 export default function callCenter(state = initialState, action) {
@@ -40,6 +41,10 @@ export default function callCenter(state = initialState, action) {
     case actionTypes.PRODUCTOS:
       newState = Object.assign({}, state, {
         productos: action.payload
+      });
+    case actionTypes.TRANSPORTISTA:
+      newState = Object.assign({}, state, {
+        transportistas: action.payload
       });
       return newState;
     default:

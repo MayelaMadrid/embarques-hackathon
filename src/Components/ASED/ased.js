@@ -68,13 +68,12 @@ class ASED extends Component {
     const { value, suggestions } = this.state;
 
     const inputProps = {
-      placeholder: 'Ingresa una busqueda',
+      placeholder: 'Estado',
       value,
       onChange: this.onChange
     };
     return (
       <div>
-        {' '}
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}

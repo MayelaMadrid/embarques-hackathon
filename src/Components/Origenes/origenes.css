@@ -5,19 +5,20 @@
   display: flex;
   width: 100%;
   height: 12vh;
-  justify-content: space-around;
 }
 .destino {
   display: flex;
-  justify-content: space-around;
   height: 100%;
-  align-items: center;
+  margin: 1% 0 0 20%;
+  text-align: center;
 }
 .origen {
   display: flex;
-  justify-content: space-around;
   height: 100%;
-  align-items: center;
+  margin: 1% 0 0 20%;
+}
+.inputSeparator {
+  margin: 0 2% 0 0;
 }
 .mapa-form {
   height: 55vh;
@@ -30,8 +31,8 @@
   position: relative;
 }
 .react-autosuggest__input {
-  width: 240px;
-  height: 30px;
+  width: 150px;
+  height: 25px;
   padding: 10px 20px;
   font-family: Helvetica, sans-serif;
   font-weight: 300;
@@ -74,4 +75,12 @@
 }
 .react-autosuggest__suggestion--highlighted {
   background-color: #ddd;
+}
+.formTitle2 {
+  background-color: #fff;
+  width: 50vw;
+  font-size: 16px;
+  font-weight: bold;
+  text-align:center;
+  color: #918fcf;
 }
