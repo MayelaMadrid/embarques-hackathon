@@ -65,8 +65,8 @@ class ASMO extends Component {
         longitud: suggestion.longitud
       }
     });
-
     this.props.sendAsmo(municipioOrigen);
+    this.props.sendAsmoName(suggestion.id);
 
     return suggestion.nombre;
   };

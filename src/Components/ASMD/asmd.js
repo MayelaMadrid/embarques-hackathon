@@ -67,6 +67,7 @@ class ASMD extends Component {
     });
 
     this.props.sendAsmd(municipioDestino);
+    this.props.sendAsmdName(suggestion.id);
 
     return suggestion.nombre;
   };

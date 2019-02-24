@@ -25,13 +25,7 @@ export const getMunicipios = async idEstado => {
   return response.response ? response.response.data : response.data;
 };
 export const getTrailers = async idEstado => {
-  const response = await apiRequest(
-    `api/trailer/${idEstado}`,
-    'GET',
-    {},
-    {},
-    {}
-  );
+  const response = await apiRequest(`api/trailer/1`, 'GET', {}, {}, {});
   return response.response ? response.response.data : response.data;
 };
 export const getAgentesExportacion = async () => {
@@ -51,5 +45,27 @@ export const getProductos = async () => {
 
 export const getTransportista = async () => {
   const response = await apiRequest(`/api/transportistas/1`, 'GET', {}, {}, {});
+  return response.response ? response.response.data : response.data;
+};
+export const guardarEmbarque = async (
+  idTrailer,
+  idMunicipioOrigen,
+  idMunicipioDestino,
+  idAgenteExportacion,
+  embarqueDetalles
+) => {
+  const response = await apiRequest(
+    `api/embarque/`,
+    'POST',
+    {
+      idTrailer: idTrailer,
+      idMunicipioOrigen: idMunicipioOrigen,
+      idMunicipioDestino: idMunicipioDestino,
+      idAgenteExportacion: idAgenteExportacion,
+      embarqueDetalles: embarqueDetalles
+    },
+    {},
+    {}
+  );
   return response.response ? response.response.data : response.data;
 };

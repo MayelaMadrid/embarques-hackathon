@@ -34,3 +34,33 @@ export const DESTINO = vista => {
     payload: vista
   };
 };
+export const idTrailer = id => {
+  return {
+    type: auth.IDTRAILER,
+    payload: id
+  };
+};
+export const idMunOrigen = id => {
+  return {
+    type: auth.IDMUNORIGEN,
+    payload: id
+  };
+};
+export const idMunDestino = id => {
+  return {
+    type: auth.IDMUNDESTINO,
+    payload: id
+  };
+};
+export const idAgente = id => {
+  return {
+    type: auth.IDAGENTE,
+    payload: id
+  };
+};
+export const embarqueDetalles = detalle => {
+  return {
+    type: auth.EMBARQUE_DETALLES,
+    payload: detalle
+  };
+};
