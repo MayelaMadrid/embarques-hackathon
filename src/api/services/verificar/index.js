@@ -47,7 +47,6 @@ export const getTransportista = async () => {
   const response = await apiRequest(`/api/transportistas/1`, 'GET', {}, {}, {});
   return response.response ? response.response.data : response.data;
 };
-<<<<<<< HEAD
 export const guardarEmbarque = async (
   idTrailer,
   idMunicipioOrigen,
@@ -70,10 +69,8 @@ export const guardarEmbarque = async (
   );
   return response.response ? response.response.data : response.data;
 };
-=======
 
 export const getEmbarque = async () => {
   const response = await apiRequest(`/api/embarque/1`, 'GET', {}, {}, {});
   return response.response ? response.response.data : response.data;
 };
->>>>>>> b2c7c85f8afb28a0ceb2f52aa923db956ba2bfcb
