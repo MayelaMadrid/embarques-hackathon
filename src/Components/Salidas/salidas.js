@@ -89,9 +89,6 @@ class Salidas extends Component {
               <Typography className="{classes.instructions">
                 Se ha guardado su embarque.
               </Typography>
-              <Button onClick={this.handleReset} className="{classes.button}">
-                Reset
-              </Button>
             </div>
           ) : (
             <div>

@@ -6,7 +6,7 @@ import './home.css';
 import Carousel from 'nuka-carousel';
 import Formulario from '../Formulario/formulario';
 import { Redirect } from 'react-router-dom';
-
+import PerfilRecolector from '../PerfilRecolector/perfilRecolector';
 import Salidas from '../Salidas/salidas';
 import Tab from '../TAB/tab';
 class Home extends Component {
@@ -34,6 +34,8 @@ class Home extends Component {
       body = <Tab />;
     } else if (this.state.home === 'salidas') {
       body = <Salidas />;
+    } else if (this.state.home === 'recibido') {
+      body = <PerfilRecolector />;
     } else {
       body = (
         <Carousel
@@ -65,65 +67,107 @@ class Home extends Component {
         </Carousel>
       );
     }
-    return (
-      <div className="home">
-        <div className="header">
-          <div
-            className="logo"
-            onClick={ev => {
-              this.changeVista('home');
-            }}
-          >
-            <label className="label">
-              <i className="fas fa-truck-moving" /> Tracking Trucks
-            </label>
-          </div>
-          <div className="opciones">
-            {' '}
+    let auth = this.props.auth;
+
+    if (auth && auth.idPerfil === 3) {
+      return (
+        <div className="home">
+          <div className="header">
             <div
-              className="opcion"
+              className="logo"
               onClick={ev => {
-                this.changeVista('registro');
+                this.changeVista('home');
               }}
             >
-              {' '}
-              <label>
-                <i className="fas fa-clipboard-list" /> Registrar embarque
+              <label className="label">
+                <i className="fas fa-truck-moving" /> Tracking Trucks
               </label>
             </div>
-            <div
-              className="opcion"
-              onClick={ev => {
-                this.changeVista('revisar');
-              }}
-            >
+            <div className="opciones">
               {' '}
-              <label>
-                <i className="fas fa-tasks" /> Revisar embarques
-              </label>
-            </div>
-            <div
-              className="opcion"
-              onClick={ev => {
-                this.changeVista('salidas');
-              }}
-            >
-              {' '}
-              <label>
-                <i className="fas fa-truck-loading" /> Salida de embarque
-              </label>
-            </div>
-            <div className="lo" onClick={this.logOut}>
-              <label>
-                <i className="fas fa-sign-out-alt" /> Cerrar sesión
-              </label>
+              <div
+                className="opcion"
+                onClick={ev => {
+                  this.changeVista('recibido');
+                }}
+              >
+                {' '}
+                <label>
+                  <i className="fas fa-clipboard-list" /> Marcar recibido
+                </label>
+              </div>
+              <div className="lo" onClick={this.logOut}>
+                <label>
+                  <i className="fas fa-sign-out-alt" /> Cerrar sesión
+                </label>
+              </div>
             </div>
           </div>
+          <div className="body">{body}</div>
+          {/* <Maps /> */}
         </div>
-        <div className="body">{body}</div>
-        {/* <Maps /> */}
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="home">
+          <div className="header">
+            <div
+              className="logo"
+              onClick={ev => {
+                this.changeVista('home');
+              }}
+            >
+              <label className="label">
+                <i className="fas fa-truck-moving" /> Tracking Trucks
+              </label>
+            </div>
+            <div className="opciones">
+              {' '}
+              <div
+                className="opcion"
+                onClick={ev => {
+                  this.changeVista('registro');
+                }}
+              >
+                {' '}
+                <label>
+                  <i className="fas fa-clipboard-list" /> Registrar embarque
+                </label>
+              </div>
+              <div
+                className="opcion"
+                onClick={ev => {
+                  this.changeVista('revisar');
+                }}
+              >
+                {' '}
+                <label>
+                  <i className="fas fa-tasks" /> Revisar embarques
+                </label>
+              </div>
+              <div
+                className="opcion"
+                onClick={ev => {
+                  this.changeVista('salidas');
+                }}
+              >
+                {' '}
+                <label>
+                  <i className="fas fa-truck-loading" /> Salida de embarque
+                </label>
+              </div>
+              <div className="lo" onClick={this.logOut}>
+                <label>
+                  <i className="fas fa-sign-out-alt" /> Cerrar sesión
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="body">{body}</div>
+          {/* <Maps /> */}
+        </div>
+      );
+    }
   }
 }
 const mapStateToProps = state => {

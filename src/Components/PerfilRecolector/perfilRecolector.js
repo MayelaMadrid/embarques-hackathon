@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import img from '../Login/img/road.jpeg';
 import * as saving from '../../actions/auth';
 import * as auth from '../../api/actions/auth';
-import './embarque.css';
+import './perfilRecolector.css';
 
 class Embarque extends Component {
   state = {
