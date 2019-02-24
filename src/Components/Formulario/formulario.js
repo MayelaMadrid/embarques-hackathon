@@ -12,9 +12,9 @@ import Trailer from '../Trailer/trailer';
 
 function getSteps() {
   return [
-    'Información del embarque',
-    'Seleccione origen y destino.',
-    'Agente de exportacion y contenido de embarque.'
+    'Modelo del embarque',
+    'Origen y destino.',
+    'Contenido de embarque.'
   ];
 }
 
@@ -97,13 +97,14 @@ class Formulario extends Component {
                     disabled={activeStep === 0}
                     onClick={this.handleBack}
                     className="{classes.button}"
+                    style={{backgroundColor:'#85ca85',color:'#fff',fontWeight:'bold', marginRight:'5px'}}
                   >
                     Anterior
-                </Button>
+                  </Button>
 
                   <Button
                     variant="contained"
-                    color="primary"
+                    style={{backgroundColor:'#5cb85c',color:'#fff',fontWeight:'bold'}}
                     onClick={this.handleNext}
                     className="{classes.button}"
                   >
