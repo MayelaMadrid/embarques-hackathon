@@ -7,6 +7,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Transportista from '../Transportista/transportista';
+import Embarque from '../Embarque/embarque';
 import Origenes from '../Origenes/origenes';
 
 function getSteps() {
@@ -16,7 +17,7 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Origenes />;
+      return <Embarque />;
     case 1:
       return <Transportista />;
     case 2:
