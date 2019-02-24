@@ -5,13 +5,19 @@ import { connect } from 'react-redux';
 const Destino = ({ text }) => (
   <div>
     Destino
-    <i className="fas fa-truck-loading" style={{ fontSize: 10 + 'px' }} />
+    <i
+      className="fas fa-truck-loading"
+      style={{ fontSize: 10 + 'px', color: 'red' }}
+    />
   </div>
 );
 const Origen = ({ text }) => (
   <div>
     Origen
-    <i className="fas fa-truck-moving" style={{ fontSize: 10 + 'px' }} />
+    <i
+      className="fas fa-truck-moving"
+      style={{ fontSize: 10 + 'px', color: 'red' }}
+    />
   </div>
 );
 class Maps extends Component {

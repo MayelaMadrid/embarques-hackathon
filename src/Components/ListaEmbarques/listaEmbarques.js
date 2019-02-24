@@ -62,7 +62,7 @@ class ListaEmbarques extends Component {
               <i className="fas fa-truck" /> Seleccione un Embarque para mostrar
               su detalle.
             </div>
-            <div className="formBody">
+            <div className="formBody scroll_lista">
               {this.props.embarques ? (
                 this.props.embarques.map((label, index) => {
                   return (
@@ -102,7 +102,7 @@ class ListaEmbarques extends Component {
                           >
                             <i className="fas fa-globe-americas" /> Origen:{' '}
                             <span style={{ color: '#2a122a' }}>
-                              {label.nombreMunicipioOrigen}
+                              {label.municipioOrigen.nombre}
                             </span>
                           </h4>
                           <h4
@@ -113,7 +113,7 @@ class ListaEmbarques extends Component {
                           >
                             <i class="fas fa-globe-africa" /> Destino{' '}
                             <span style={{ color: '#2a122a' }}>
-                              {label.nombreMunicipioDestino}
+                              {label.municipioDestino.nombre}
                             </span>
                           </h4>
                         </CardContent>

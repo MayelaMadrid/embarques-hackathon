@@ -100,12 +100,6 @@ export const guardarSalida = async (
   return response.response ? response.response.data : response.data;
 };
 export const recibido = async id => {
-  const response = await apiRequest(
-    `/api/embarque/${id}/4`,
-    'PATCH',
-    {},
-    {},
-    {}
-  );
+  const response = await apiRequest(`/api/embarque/${id}/4`, 'PUT', {}, {}, {});
   return response.response ? response.response.data : response.data;
 };

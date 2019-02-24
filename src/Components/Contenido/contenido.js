@@ -36,18 +36,38 @@ class Contenido extends Component {
     this.props.getProductos();
   }
 
-  productImage = (index) => {
-    switch(index) {
-      case 0: return img1; break;
-      case 1: return img2; break;
-      case 2: return img3; break;
-      case 3: return img4; break;
-      case 4: return img5; break;
-      case 5: return img6; break;
-      case 6: return img7; break;
-      case 7: return img8; break;
-      case 8: return img9; break;
-      case 9: return img10; break;
+  productImage = index => {
+    switch (index) {
+      case 0:
+        return img1;
+        break;
+      case 1:
+        return img2;
+        break;
+      case 2:
+        return img3;
+        break;
+      case 3:
+        return img4;
+        break;
+      case 4:
+        return img5;
+        break;
+      case 5:
+        return img6;
+        break;
+      case 6:
+        return img7;
+        break;
+      case 7:
+        return img8;
+        break;
+      case 8:
+        return img9;
+        break;
+      case 9:
+        return img10;
+        break;
     }
   };
 
@@ -162,7 +182,7 @@ class Contenido extends Component {
             />
           </div>
         </div>
-        <div className="formContenido">
+        <div className="formContenido scroll_lista">
           {productos ? (
             productos.map((i, k) => {
               return (

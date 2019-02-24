@@ -8,19 +8,28 @@ import firebase from '../../Config.js';
 const Destino = ({ text }) => (
   <div>
     Destino
-    <i className="fas fa-truck-loading" style={{ fontSize: 10 + 'px' }} />
+    <i
+      className="fas fa-truck-loading"
+      style={{ fontSize: 10 + 'px', color: 'red' }}
+    />
   </div>
 );
 const Origen = ({ text }) => (
   <div>
     Origen
-    <i className="fas fa-truck-moving" style={{ fontSize: 10 + 'px' }} />
+    <i
+      className="fas fa-truck-moving"
+      style={{ fontSize: 10 + 'px', color: 'red' }}
+    />
   </div>
 );
 const EnCamino = ({ text }) => (
   <div>
     Curso
-    <i className="fas fa-location-arrow" style={{ fontSize: 10 + 'px' }} />
+    <i
+      className="fas fa-location-arrow"
+      style={{ fontSize: 10 + 'px', color: 'blue' }}
+    />
   </div>
 );
 class ModalMapa extends Component {

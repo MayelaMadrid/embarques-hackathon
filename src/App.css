@@ -25,6 +25,15 @@
   color: #61dafb;
 }
 
+.scroll_lista::-webkit-scrollbar {
+  width: 2px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.scroll_lista::-webkit-scrollbar-thumb {
+  background: #5e00ff;
+  border-radius: 10px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

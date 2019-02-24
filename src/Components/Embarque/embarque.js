@@ -52,7 +52,7 @@ class Embarque extends Component {
         <div className="formTitle">
           <i className="fas fa-truck" /> Seleccione un Embarque
         </div>
-        <div className="formBody">
+        <div className="formBody scroll_lista">
           {this.props.embarques ? (
             this.props.embarques.map((label, index) => {
               return (

@@ -31,18 +31,38 @@ class Trailer extends Component {
     this.setState({ seleccionado: ev.target.id });
     this.props.guardarTrailer(ev.target.id);
   };
-  trailerImage = (index) => {
-    switch(index) {
-      case 0: return img1; break;
-      case 1: return img2; break;
-      case 2: return img3; break;
-      case 3: return img4; break;
-      case 4: return img5; break;
-      case 5: return img6; break;
-      case 6: return img7; break;
-      case 7: return img8; break;
-      case 8: return img9; break;
-      case 9: return img10; break;
+  trailerImage = index => {
+    switch (index) {
+      case 0:
+        return img1;
+        break;
+      case 1:
+        return img2;
+        break;
+      case 2:
+        return img3;
+        break;
+      case 3:
+        return img4;
+        break;
+      case 4:
+        return img5;
+        break;
+      case 5:
+        return img6;
+        break;
+      case 6:
+        return img7;
+        break;
+      case 7:
+        return img8;
+        break;
+      case 8:
+        return img9;
+        break;
+      case 9:
+        return img10;
+        break;
     }
   };
 
@@ -84,7 +104,7 @@ class Trailer extends Component {
         <div className="formTitle">
           <i className="fas fa-truck-moving" /> Seleccione un camion
         </div>
-        <div className="formBody">
+        <div className="formBody scroll_lista">
           {trailers ? (
             trailers.map((label, index) => {
               return (

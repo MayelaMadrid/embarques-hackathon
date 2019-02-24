@@ -66,7 +66,7 @@ class Dispositivo extends Component {
         <div className="formTitle">
           <i class="fab fa-raspberry-pi" /> Seleccione un Dispositivo
         </div>
-        <div className="formBody">
+        <div className="formBody scroll_lista">
           {this.props.dispositivos ? (
             this.props.dispositivos.map((label, index) => {
               return (

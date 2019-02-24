@@ -35,18 +35,38 @@ class Transportista extends Component {
     this.props.getTransportista();
   }
 
-  choferImage = (index) => {
-    switch(index) {
-      case 0: return img1; break;
-      case 1: return img2; break;
-      case 2: return img3; break;
-      case 3: return img4; break;
-      case 4: return img5; break;
-      case 5: return img6; break;
-      case 6: return img7; break;
-      case 7: return img8; break;
-      case 8: return img9; break;
-      case 9: return img10; break;
+  choferImage = index => {
+    switch (index) {
+      case 0:
+        return img1;
+        break;
+      case 1:
+        return img2;
+        break;
+      case 2:
+        return img3;
+        break;
+      case 3:
+        return img4;
+        break;
+      case 4:
+        return img5;
+        break;
+      case 5:
+        return img6;
+        break;
+      case 6:
+        return img7;
+        break;
+      case 7:
+        return img8;
+        break;
+      case 8:
+        return img9;
+        break;
+      case 9:
+        return img10;
+        break;
     }
   };
 
@@ -82,33 +102,39 @@ class Transportista extends Component {
         <div className="formTitle">
           <i className="fas fa-user" /> Seleccione un Transportista
         </div>
-        <div className="formBody">
-          {this.props.transportistas?
-          this.props.transportistas.map((label, index) => {
-            return (
-              <Card style={styles.card}>
-                <CardActionArea>
-                  <CardMedia
-                    style={styles.media}
-                    image={this.choferImage(index)}
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <h2 style={{ color: 'black', alignContent: 'flex-end' }}>
-                      <i className="fas fa-user"></i> {label.nombre}
-                    </h2>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions style={{ justifyContent: 'center' }}>
-                  <Button size="large" style={styles.acceptButton}>
-                    Seleccionar
-                  </Button>
-                </CardActions>
-              </Card>
-            );
-          }):
-          <div></div>
-        }
+        <div className="formBody scroll_lista">
+          {this.props.transportistas ? (
+            this.props.transportistas.map((label, index) => {
+              return (
+                <Card style={styles.card}>
+                  <CardActionArea>
+                    <CardMedia
+                      style={styles.media}
+                      image={this.choferImage(index)}
+                      title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <h2 style={{ color: 'black', alignContent: 'flex-end' }}>
+                        <i className="fas fa-user" /> {label.nombre}
+                      </h2>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions style={{ justifyContent: 'center' }}>
+                    <button
+                      size="large"
+                      style={styles.acceptButton}
+                      id={label.id}
+                      onClick={this.seleccionChofer}
+                    >
+                      Seleccionar
+                    </button>
+                  </CardActions>
+                </Card>
+              );
+            })
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     );

@@ -22,7 +22,7 @@ class Embarque extends Component {
       this.setState({ embarques: this.props.embarques });
     });
   }
-  seleccionTrailer = ev => {
+  seleccionEmbarque = ev => {
     let pro = this.state.embarques;
     let approved = pro.filter(stu => stu.id === ev.target.id);
     for (let i = 0; i < approved.length; i++) {
@@ -30,7 +30,7 @@ class Embarque extends Component {
       pro.splice(index, 1);
     }
     this.setState({ embarques: pro });
-
+    console.log(ev.target.id);
     this.props.guardarEmbarque(ev.target.id);
   };
   render() {
@@ -62,7 +62,7 @@ class Embarque extends Component {
           <i className="fas fa-truck" /> Seleccione un Embarque para marcar como
           recibido{' '}
         </div>
-        <div className="formBody">
+        <div className="formBody scroll_lista">
           {this.state.embarques ? (
             this.state.embarques.map((label, index) => {
               return (
@@ -87,13 +87,13 @@ class Embarque extends Component {
                       <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
                         <i className="fas fa-globe-americas" /> Origen:{' '}
                         <span style={{ color: '#2a122a' }}>
-                          {label.nombreMunicipioOrigen}
+                          {label.municipioOrigen.nombre}
                         </span>
                       </h4>
                       <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
                         <i class="fas fa-globe-africa" /> Destino{' '}
                         <span style={{ color: '#2a122a' }}>
-                          {label.nombreMunicipioDestino}
+                          {label.municipioDestino.nombre}
                         </span>
                       </h4>
                     </CardContent>
@@ -132,7 +132,7 @@ const mapDispatchToProps = dispatch => {
       return auth.getEmbarque(3)(dispatch);
     },
     guardarEmbarque: id => {
-      return auth.recibido()(dispatch);
+      return auth.recibido(id)(dispatch);
     }
   };
 };
