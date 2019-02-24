@@ -10,124 +10,130 @@ import Typography from '@material-ui/core/Typography';
 
 import Trailer from '../Trailer/trailer';
 import Origenes from '../Origenes/origenes';
-import Exportacion from '../Exportacion/exportacion';
+import Contenido from '../Contenido/contenido';
 
 function getSteps() {
-  return [
-    'Modelo del embarque',
-    'Origen y destino.',
-    'Contenido de embarque.'
-  ];
+ return ['Modelo del embarque', 'Origen y destino.', 'Contenido de embarque.'];
 }
 
 function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <Trailer />;
-    case 1:
-      return <Origenes />;
-    case 2:
-      return <Exportacion />;
-    default:
-      return 'Unknown step';
-  }
+ switch (step) {
+   case 0:
+     return <Trailer />;
+   case 1:
+     return <Origenes />;
+   case 2:
+     return <Contenido />;
+   default:
+     return 'Unknown step';
+ }
 }
 
 class Formulario extends Component {
-  state = {
-    activeStep: 0,
-    skipped: new Set()
-  };
+ state = {
+   activeStep: 0,
+   skipped: new Set()
+ };
 
-  handleNext = () => {
-    const { activeStep } = this.state;
-    let { skipped } = this.state;
+ handleNext = () => {
+   const { activeStep } = this.state;
+   let { skipped } = this.state;
 
-    this.setState({
-      activeStep: activeStep + 1,
-      skipped
-    });
-  };
+   this.setState({
+     activeStep: activeStep + 1,
+     skipped
+   });
+ };
 
-  handleBack = () => {
-    this.setState(state => ({
-      activeStep: state.activeStep - 1
-    }));
-  };
+ handleBack = () => {
+   this.setState(state => ({
+     activeStep: state.activeStep - 1
+   }));
+ };
 
-  handleReset = () => {
-    this.setState({
-      activeStep: 0
-    });
-  };
+ handleReset = () => {
+   this.setState({
+     activeStep: 0
+   });
+ };
 
-  render() {
-    const steps = getSteps();
-    const { activeStep } = this.state;
+ render() {
+   const steps = getSteps();
+   const { activeStep } = this.state;
 
-    return (
-      <div className="formulario">
-        <Stepper activeStep={activeStep}>
-          {steps.map((label, index) => {
-            const props = {};
-            const labelProps = {};
-            return (
-              <Step key={label} {...props}>
-                <StepLabel {...labelProps}>{label}</StepLabel>
-              </Step>
-            );
-          })}
-        </Stepper>
-        <div>
-          {activeStep === steps.length ? (
-            <div>
-              <Typography className="{classes.instructions">
-                Completado
-              </Typography>
-              <Button onClick={this.handleReset} className="{classes.button}">
-                Reset
-              </Button>
-            </div>
-          ) : (
-            <div>
-                <Typography className="{classes.instructions}">
-                  {getStepContent(activeStep)}
-                </Typography>
-                <div>
-                  <br/>
-                  <Button
-                    disabled={activeStep === 0}
-                    onClick={this.handleBack}
-                    className="{classes.button}"
-                    style={{backgroundColor:'#85ca85',color:'#fff',fontWeight:'bold', marginRight:'5px'}}
-                  >
-                    Anterior
-                  </Button>
+   return (
+     <div className="formulario">
+       <Stepper activeStep={activeStep}>
+         {steps.map((label, index) => {
+           const props = {};
+           const labelProps = {};
+           return (
+             <Step key={label} {...props}>
+               <StepLabel {...labelProps}>{label}</StepLabel>
+             </Step>
+           );
+         })}
+       </Stepper>
+       <div>
+         {activeStep === steps.length ? (
+           <div>
+             <Typography className="{classes.instructions">
+               Completado
+             </Typography>
+             <Button onClick={this.handleReset} className="{classes.button}">
+               Reset
+             </Button>
+           </div>
+         ) : (
+           <div>
+             <Typography className="{classes.instructions}">
+               {getStepContent(activeStep)}
+             </Typography>
 
-                  <Button
-                    variant="contained"
-                    style={{backgroundColor:'#5cb85c',color:'#fff',fontWeight:'bold'}}
-                    onClick={this.handleNext}
-                    className="{classes.button}"
-                  >
-                    {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente'}
-                  </Button>
-                </div>
-              </div>
-          )}
-        </div>
-      </div>
-    );
-  }
+             <div>
+               <br />
+               <Button
+                 disabled={activeStep === 0}
+                 onClick={this.handleBack}
+                 className="{classes.button}"
+                 style={{
+                   backgroundColor: '#85ca85',
+                   color: '#fff',
+                   fontWeight: 'bold',
+                   marginRight: '5px'
+                 }}
+               >
+                 Anterior
+               </Button>
+
+               <Button
+                 variant="contained"
+                 style={{
+                   backgroundColor: '#5cb85c',
+                   color: '#fff',
+                   fontWeight: 'bold'
+                 }}
+                 onClick={this.handleNext}
+                 className="{classes.button}"
+               >
+                 {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente'}
+               </Button>
+             </div>
+           </div>
+         )}
+       </div>
+     </div>
+   );
+ }
 }
 const mapStateToProps = state => {
-  return {};
+ return {};
 };
 const mapDispatchToProps = dispatch => {
-  return {};
+ return {};
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+ mapStateToProps,
+ mapDispatchToProps
 )(Formulario);
