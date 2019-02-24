@@ -102,8 +102,7 @@ class Formulario extends Component {
                 {getStepContent(activeStep)}
               </Typography>
 
-              <div>
-                <br />
+              <div className="buttonSpaced">
                 <Button
                   disabled={activeStep === 0}
                   onClick={this.handleBack}

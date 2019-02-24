@@ -1,0 +1,12 @@
+.fechaSalida {
+    padding: 1% 1% 1% 1%;
+    margin: 1% auto 0 auto;
+    border:1px #9e9cd6 solid;
+    min-height: 10px;
+    width: 90%;
+    color: #2a1222;
+    border-radius: 20px;
+    display:flex;
+    justify-content: center;
+    background-color: rgb(246, 247, 253);
+}

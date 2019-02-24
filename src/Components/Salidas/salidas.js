@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Transportista from '../Transportista/transportista';
 import Embarque from '../Embarque/embarque';
-import Origenes from '../Origenes/origenes';
+import Dispositivo from '../Dispositivo/dispositivo';
 
 function getSteps() {
   return ['Seleccionar embarque.', 'Asignar chofer.', 'Asignar dispositivo'];
@@ -21,7 +21,7 @@ function getStepContent(step) {
     case 1:
       return <Transportista />;
     case 2:
-      return <Origenes />;
+      return <Dispositivo />;
     default:
       return 'Unknown step';
   }
@@ -88,7 +88,7 @@ class Salidas extends Component {
                 {getStepContent(activeStep)}
               </Typography>
 
-              <div>
+              <div className="buttonSpaced">
                 <br />
                 <Button
                   disabled={activeStep === 0}

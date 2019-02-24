@@ -42,7 +42,7 @@ class Transportista extends Component {
     return (
       <div className="transportistaBackground">
         <div className="formTitle">
-          <i className="fas fa-running"></i> Seleccione un Transportista
+          <i className="fas fa-user"></i> Seleccione un Transportista
         </div>
         <div className="formBody">
           {this.props.transportistas?
@@ -57,7 +57,7 @@ class Transportista extends Component {
                   />
                   <CardContent>
                     <h2 style={{ color: 'black', alignContent: 'flex-end' }}>
-                      {label.nombre}
+                      <i className="fas fa-user"></i> {label.nombre}
                     </h2>
                   </CardContent>
                 </CardActionArea>

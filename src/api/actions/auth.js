@@ -81,3 +81,11 @@ export const getEmbarque = s => async dispatch => {
     payload: result
   });
 };
+
+export const getDispositivo = () => async dispatch => {
+  const result = await services.getDispositivo();
+  dispatch({
+    type: actionTypes.DISPOSITIVO,
+    payload: result
+  });
+};
