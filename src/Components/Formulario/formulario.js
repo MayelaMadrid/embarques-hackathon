@@ -90,10 +90,6 @@ class Formulario extends Component {
             </div>
           ) : (
             <div>
-              <Typography className="{classes.instructions}">
-                {getStepContent(activeStep)}
-              </Typography>
-              <div>
                 <Typography className="{classes.instructions}">
                   {getStepContent(activeStep)}
                 </Typography>
@@ -118,7 +114,6 @@ class Formulario extends Component {
                   </Button>
                 </div>
               </div>
-            </div>
           )}
         </div>
       </div>

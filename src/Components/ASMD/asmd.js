@@ -78,7 +78,7 @@ class ASMD extends Component {
     const { value, suggestions } = this.state;
 
     const inputProps = {
-      placeholder: 'Ingresa una busqueda',
+      placeholder: 'Municipio',
       value,
       onChange: this.onChange
     };
