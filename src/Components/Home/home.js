@@ -5,8 +5,10 @@ import * as login from '../../actions/auth';
 import './home.css';
 import Carousel from 'nuka-carousel';
 import Formulario from '../Formulario/formulario';
-import ListaEmbarques from '../Formulario/formulario';
+import { Redirect } from 'react-router-dom';
+
 import Salidas from '../Salidas/salidas';
+import Tab from '../TAB/tab';
 class Home extends Component {
   state = {
     username: '',
@@ -29,16 +31,37 @@ class Home extends Component {
     if (this.state.home === 'registro') {
       body = <Formulario />;
     } else if (this.state.home === 'revisar') {
-      body = <ListaEmbarques />;
+      body = <Tab />;
     } else if (this.state.home === 'salidas') {
       body = <Salidas />;
     } else {
       body = (
-        <Carousel autoplay autoplayInterval={3000} style={{width:'80%', marginTop: '0.4em', marginLeft: 'auto', marginRight: 'auto'}}>
-          <img style={{maxHeight: '100%'}} src="https://firebasestorage.googleapis.com/v0/b/tracking-trucks-f68a7.appspot.com/o/truck_1.jpg?alt=media&token=554a1897-b9cf-41bf-bd8c-be4de0418861" />
-          <img style={{maxHeight: '100%'}} src="https://firebasestorage.googleapis.com/v0/b/tracking-trucks-f68a7.appspot.com/o/truck_2.jpg?alt=media&token=f88503dc-e747-4fc7-b4f8-ffa7100508e3" />
-          <img style={{maxHeight: '100%'}} src="https://firebasestorage.googleapis.com/v0/b/tracking-trucks-f68a7.appspot.com/o/truck_3.jpg?alt=media&token=3af59844-4a45-49dd-85f8-c2288517e8ec" />
-          <img style={{maxHeight: '100%'}} src="https://firebasestorage.googleapis.com/v0/b/tracking-trucks-f68a7.appspot.com/o/truck_4.jpg?alt=media&token=ab80b955-b954-4f00-9d24-8ba3944ab0a2" />
+        <Carousel
+          autoplay
+          autoplayInterval={3000}
+          style={{
+            width: '80%',
+            marginTop: '0.4em',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        >
+          <img
+            style={{ maxHeight: '100%' }}
+            src="https://firebasestorage.googleapis.com/v0/b/tracking-trucks-f68a7.appspot.com/o/truck_1.jpg?alt=media&token=554a1897-b9cf-41bf-bd8c-be4de0418861"
+          />
+          <img
+            style={{ maxHeight: '100%' }}
+            src="https://firebasestorage.googleapis.com/v0/b/tracking-trucks-f68a7.appspot.com/o/truck_2.jpg?alt=media&token=f88503dc-e747-4fc7-b4f8-ffa7100508e3"
+          />
+          <img
+            style={{ maxHeight: '100%' }}
+            src="https://firebasestorage.googleapis.com/v0/b/tracking-trucks-f68a7.appspot.com/o/truck_3.jpg?alt=media&token=3af59844-4a45-49dd-85f8-c2288517e8ec"
+          />
+          <img
+            style={{ maxHeight: '100%' }}
+            src="https://firebasestorage.googleapis.com/v0/b/tracking-trucks-f68a7.appspot.com/o/truck_4.jpg?alt=media&token=ab80b955-b954-4f00-9d24-8ba3944ab0a2"
+          />
         </Carousel>
       );
     }
@@ -64,7 +87,9 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label><i className="fas fa-clipboard-list"></i> Registrar embarque</label>
+              <label>
+                <i className="fas fa-clipboard-list" /> Registrar embarque
+              </label>
             </div>
             <div
               className="opcion"
@@ -73,7 +98,9 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label><i className="fas fa-tasks"></i> Revisar embarques</label>
+              <label>
+                <i className="fas fa-tasks" /> Revisar embarques
+              </label>
             </div>
             <div
               className="opcion"
@@ -82,11 +109,13 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label><i className="fas fa-truck-loading"></i> Salida de embarque</label>
+              <label>
+                <i className="fas fa-truck-loading" /> Salida de embarque
+              </label>
             </div>
             <div className="lo" onClick={this.logOut}>
               <label>
-                <i className="fas fa-sign-out-alt"></i> Cerrar sesión
+                <i className="fas fa-sign-out-alt" /> Cerrar sesión
               </label>
             </div>
           </div>

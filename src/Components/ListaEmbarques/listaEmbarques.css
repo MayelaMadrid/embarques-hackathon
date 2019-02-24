@@ -1,0 +1,15 @@
+.ListaEmbarques {
+  padding: 1% 1% 1% 1%;
+  margin: 1% auto 0 auto;
+  border: 1px #9e9cd6 solid;
+  min-height: 10px;
+  width: 100%;
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(246, 247, 253);
+  overflow-x: scroll;
+  z-index: 0;
+  position: relative;
+}
