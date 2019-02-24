@@ -74,8 +74,8 @@ export const guardarEmbarque = (
   });
 };
 
-export const getEmbarque = () => async dispatch => {
-  const result = await services.getEmbarque();
+export const getEmbarque = s => async dispatch => {
+  const result = await services.getEmbarque(s);
   dispatch({
     type: actionTypes.EMBARQUE,
     payload: result
