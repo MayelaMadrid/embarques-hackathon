@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import './salidas.css';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import Transportista from '../Transportista/transportista';
 import Embarque from '../Embarque/embarque';
 import Dispositivo from '../Dispositivo/dispositivo';

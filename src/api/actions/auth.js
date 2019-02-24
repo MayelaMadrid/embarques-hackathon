@@ -54,6 +54,25 @@ export const getTransportista = () => async dispatch => {
     payload: result
   });
 };
+export const guardarEmbarque = (
+  idTrailer,
+  idMunicipioOrigen,
+  idMunicipioDestino,
+  idAgenteExportacion,
+  embarqueDetalles
+) => async dispatch => {
+  const result = await services.guardarEmbarque(
+    idTrailer,
+    idMunicipioOrigen,
+    idMunicipioDestino,
+    idAgenteExportacion,
+    embarqueDetalles
+  );
+  dispatch({
+    type: actionTypes.GUARDAR_EMBARQUE,
+    payload: result
+  });
+};
 
 export const getEmbarque = () => async dispatch => {
   const result = await services.getEmbarque();

@@ -10,6 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import Autosuggest from 'react-autosuggest';
 import img from '../Login/img/road.jpeg';
 import * as auth from '../../api/actions/auth';
+import * as saving from '../../actions/auth';
 import './contenido.css';
 
 class Contenido extends Component {
@@ -65,26 +66,27 @@ class Contenido extends Component {
 
   getSuggestionValue = suggestion => {
     this.setState({ agente: suggestion.id });
+    this.props.guardarIdAgente(suggestion.id);
     return suggestion.nombreCompleto;
   };
 
   handleChange = event => {
     let pro = this.state.productosSelected;
-    let sel = this.state.cantidad;
+
     if (event.target.value > 0) {
-      let approved = pro.filter(stu => stu.nombre === event.target.name);
+      let approved = pro.filter(stu => stu.idProducto === event.target.id);
       for (let i = 0; i < approved.length; i++) {
-        var index = pro.indexOf(approved[i]);
+        let index = pro.indexOf(approved[i]);
         pro.splice(index, 1);
       }
 
-      console.log(pro);
       pro.push({
-        cantidad: event.target.value,
-        id: event.target.id,
-        nombre: event.target.name
+        idProducto: event.target.id,
+        cantidadProducto: event.target.value
       });
+
       this.setState({ productosSelected: pro });
+      this.props.guardarDetalleEmpaque(pro);
     }
   };
 
@@ -191,6 +193,12 @@ const mapDispatchToProps = dispatch => {
     },
     getProductos: () => {
       return auth.getProductos()(dispatch);
+    },
+    guardarIdAgente: id => {
+      dispatch(saving.idAgente(id));
+    },
+    guardarDetalleEmpaque: id => {
+      dispatch(saving.embarqueDetalles(id));
     }
   };
 };

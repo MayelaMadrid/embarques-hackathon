@@ -11,7 +11,6 @@ import Maps from '../Maps/maps';
 import './origenes.css';
 
 class Origenes extends Component {
-
   state = {
     origen: '',
     destino: '',
@@ -70,11 +69,15 @@ class Origenes extends Component {
   getAsmo = val => {
     this.setState({ municipioOrigen: val });
   };
-
+  getAsmoName = val => {
+    this.props.guardarIdOrigen(val);
+  };
   getAsmd = val => {
     this.setState({ municipioDestino: val });
   };
-
+  getAsmdName = val => {
+    this.props.guardarIdDestino(val);
+  };
   getSuggestionValue = suggestion => {
     this.setState({ estadoOrigen: suggestion.id });
     this.props.onLoadMunicipios(suggestion.id);
@@ -84,7 +87,6 @@ class Origenes extends Component {
   renderSuggestion = suggestion => <div>{suggestion.estado}</div>;
 
   render() {
-
     let estados = this.props.estados;
 
     const { value, suggestions } = this.state;
@@ -99,7 +101,10 @@ class Origenes extends Component {
         <div className="origenes">
           <div>
             <div className="formTitle2">
-              <label><i className="fas fa-globe-americas"></i> Seleccione el lugar de origen</label>
+              <label>
+                <i className="fas fa-globe-americas" /> Seleccione el lugar de
+                origen
+              </label>
             </div>
             <div className="origen">
               <div className="inputSeparator">
@@ -114,20 +119,23 @@ class Origenes extends Component {
                 />
               </div>
               <div className="inputSeparator">
-                <ASMO sendAsmo={this.getAsmo} />
+                <ASMO sendAsmo={this.getAsmo} sendAsmoName={this.getAsmoName} />
               </div>
             </div>
           </div>
           <div>
             <div className="formTitle2">
-              <label><i className="fas fa-globe-africa"></i> Seleccione el lugar de destino</label>
+              <label>
+                <i className="fas fa-globe-africa" /> Seleccione el lugar de
+                destino
+              </label>
             </div>
             <div className="destino">
               <div className="inputSeparator">
                 <ASED />
               </div>
               <div className="inputSeparator">
-                <ASMD sendAsmd={this.getAsmd} />
+                <ASMD sendAsmd={this.getAsmd} sendAsmdName={this.getAsmdName} />
               </div>
             </div>
           </div>
@@ -165,6 +173,12 @@ const mapDispatchToProps = dispatch => {
     },
     cargarDestino: coo => {
       dispatch(login.DESTINO(coo));
+    },
+    guardarIdDestino: id => {
+      dispatch(login.idMunDestino(id));
+    },
+    guardarIdOrigen: id => {
+      dispatch(login.idMunOrigen(id));
     }
   };
 };
