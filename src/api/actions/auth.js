@@ -74,8 +74,8 @@ export const guardarEmbarque = (
   });
 };
 
-export const getEmbarque = () => async dispatch => {
-  const result = await services.getEmbarque();
+export const getEmbarque = s => async dispatch => {
+  const result = await services.getEmbarque(s);
   dispatch({
     type: actionTypes.EMBARQUE,
     payload: result
@@ -86,6 +86,23 @@ export const getDispositivo = () => async dispatch => {
   const result = await services.getDispositivo();
   dispatch({
     type: actionTypes.DISPOSITIVO,
+    payload: result
+  });
+};
+export const guardarSalida = (
+  idEmbarque,
+  idChofer,
+  idDispositivo,
+  fechaSalida
+) => async dispatch => {
+  const result = await services.guardarSalida(
+    idEmbarque,
+    idChofer,
+    idDispositivo,
+    fechaSalida
+  );
+  dispatch({
+    type: actionTypes.GUADAR_SALIDA,
     payload: result
   });
 };

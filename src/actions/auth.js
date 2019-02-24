@@ -64,3 +64,27 @@ export const embarqueDetalles = detalle => {
     payload: detalle
   };
 };
+export const guardarChofer = id => {
+  return {
+    type: auth.GUARDAR_CHOFER,
+    payload: id
+  };
+};
+export const guardarEmbarque = id => {
+  return {
+    type: auth.EMBARQUE,
+    payload: id
+  };
+};
+export const guardarDispositivo = id => {
+  return {
+    type: auth.DISPOSITIVO,
+    payload: id
+  };
+};
+export const guardarFechaSalida = id => {
+  return {
+    type: auth.FECHA_SALIDA,
+    payload: id
+  };
+};

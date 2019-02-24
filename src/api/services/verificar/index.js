@@ -79,3 +79,23 @@ export const getDispositivo = async () => {
   const response = await apiRequest(`/api/dispositivo/1`, 'GET', {}, {}, {});
   return response.response ? response.response.data : response.data;
 };
+export const guardarSalida = async (
+  idEmbarque,
+  idChofer,
+  idDispositivo,
+  fechaSalida
+) => {
+  const response = await apiRequest(
+    `/api/salidas/`,
+    'POST',
+    {
+      idEmbarque: idEmbarque,
+      idTransportista: idChofer,
+      idDispositivo: idDispositivo,
+      fechaSalida: fechaSalida
+    },
+    {},
+    {}
+  );
+  return response.response ? response.response.data : response.data;
+};

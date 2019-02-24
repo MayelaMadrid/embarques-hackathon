@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import img from '../Login/img/road.jpeg';
+import * as saving from '../../actions/auth';
 import * as auth from '../../api/actions/auth';
 import './transportista.css';
 
@@ -25,9 +26,9 @@ import img12 from './img/12.jpg';
 import img13 from './img/13.jpg';
 
 class Transportista extends Component {
-
   state = {
-    transportistas: []
+    transportistas: [],
+    seleccionado: ''
   };
 
   componentDidMount() {
@@ -49,6 +50,10 @@ class Transportista extends Component {
     }
   };
 
+  seleccionChofer = ev => {
+    this.setState({ seleccionado: ev.target.id });
+    this.props.guardarChofer(ev.target.id);
+  };
   render() {
     const styles = {
       card: {
@@ -64,14 +69,18 @@ class Transportista extends Component {
       acceptButton: {
         backgroundColor: '#0000ff',
         color: '#fff',
-        borderRadius: '20px'
+        borderRadius: '20px',
+        fontSize: '16px',
+        border: '1px #0000ff solid',
+        width: '70%',
+        padding: '1% 3% 1% 3%'
       }
     };
 
     return (
       <div className="transportistaBackground">
         <div className="formTitle">
-          <i className="fas fa-user"></i> Seleccione un Transportista
+          <i className="fas fa-user" /> Seleccione un Transportista
         </div>
         <div className="formBody">
           {this.props.transportistas?
@@ -106,7 +115,7 @@ class Transportista extends Component {
   }
 }
 
-const mapStateToProps = state => {  
+const mapStateToProps = state => {
   return {
     transportistas: state.Api.Auth.transportistas
   };
@@ -115,7 +124,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getTransportista: () => {
-        return auth.getTransportista()(dispatch);
+      return auth.getTransportista()(dispatch);
+    },
+    guardarChofer: id => {
+      dispatch(saving.guardarChofer(id));
     }
   };
 };

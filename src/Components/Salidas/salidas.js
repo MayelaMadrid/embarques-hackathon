@@ -4,6 +4,7 @@ import './salidas.css';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
+import * as saving from '../../api/actions/auth';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Transportista from '../Transportista/transportista';
@@ -36,7 +37,17 @@ class Salidas extends Component {
   handleNext = () => {
     const { activeStep } = this.state;
     let { skipped } = this.state;
+    const { idEmbarque, idChofer, idDispositivo, fechaSalida } = this.props;
+    const steps = getSteps();
 
+    if (activeStep === steps.length - 1) {
+      this.props.guardarSalida(
+        idEmbarque,
+        idChofer,
+        idDispositivo,
+        fechaSalida
+      );
+    }
     this.setState({
       activeStep: activeStep + 1,
       skipped
@@ -76,7 +87,7 @@ class Salidas extends Component {
           {activeStep === steps.length ? (
             <div>
               <Typography className="{classes.instructions">
-                Completado
+                Se ha guardado su embarque.
               </Typography>
               <Button onClick={this.handleReset} className="{classes.button}">
                 Reset
@@ -125,10 +136,24 @@ class Salidas extends Component {
   }
 }
 const mapStateToProps = state => {
-  return {};
+  return {
+    idEmbarque: state.Auth.idEmbarque,
+    idChofer: state.Auth.idChofer,
+    idDispositivo: state.Auth.idDispositivo,
+    fechaSalida: state.Auth.fechaSalida
+  };
 };
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    guardarSalida: (idEmbarque, idChofer, idDispositivo, fechaSalida) => {
+      return saving.guardarSalida(
+        idEmbarque,
+        idChofer,
+        idDispositivo,
+        fechaSalida
+      )(dispatch);
+    }
+  };
 };
 
 export default connect(
