@@ -73,10 +73,9 @@ class Login extends Component {
     }
   };
   render() {
-    console.log(this.state.username, this.state.password);
     let authInfo = this.props.auth;
     // let errorLogin = this.state.errorLogin;
-    console.log(authInfo, this.props.userid, localStorage.getItem('userid'));
+
     if (
       (authInfo && authInfo.success && this.props.userid) ||
       localStorage.getItem('userid')

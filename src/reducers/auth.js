@@ -8,7 +8,6 @@ const initialState = {
 };
 
 function Auth(state = initialState, action) {
-  debugger;
   switch (action.type) {
     case auth.SET_USER:
       return Object.assign({}, state, {

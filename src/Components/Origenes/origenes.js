@@ -10,6 +10,8 @@ import * as login from '../../actions/auth';
 import Autosuggest from 'react-autosuggest';
 import Select from '@material-ui/core/Select';
 import ASMO from '../ASMO/asmo';
+import ASED from '../ASED/ased';
+import ASMD from '../ASMD/asmd';
 
 import Maps from '../Maps/maps';
 import './origenes.css';
@@ -74,6 +76,10 @@ class Origenes extends Component {
     this.setState({ municipioOrigen: val });
   };
 
+  getAsmd = val => {
+    this.setState({ municipioDestino: val });
+  };
+
   getSuggestionValue = suggestion => {
     this.setState({ estadoOrigen: suggestion.id });
     this.props.onLoadMunicipios(suggestion.id);
@@ -84,12 +90,7 @@ class Origenes extends Component {
 
   render() {
     let estados = this.props.estados;
-    console.log(
-      estados,
-      this.state.estadoOrigen,
-      this.props.locOrigen,
-      this.state.municipioOrigen
-    );
+
     const { value, suggestions } = this.state;
 
     const inputProps = {
@@ -128,81 +129,21 @@ class Origenes extends Component {
             </div>
             <div className="destino">
               <div>
-                {' '}
-                <FormControl
-                  variant="outlined"
-                  className="{classes.formControl}"
-                >
-                  <InputLabel
-                    ref={ref => {
-                      this.InputLabelRef = ref;
-                    }}
-                    htmlFor="outlined-age-simple"
-                  >
-                    Estado
-                  </InputLabel>
-                  <Select
-                    className="select-origenes"
-                    value={this.state.estadoOrigen}
-                    onChange={this.handleChange}
-                    input={
-                      <OutlinedInput
-                        labelWidth={1}
-                        name="estadoOrigen"
-                        id="outlined-age-simple"
-                      />
-                    }
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenxxxty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
-                </FormControl>
+                <ASED />
               </div>
               <div>
-                {' '}
-                <FormControl
-                  variant="outlined"
-                  className="{classes.formControl}"
-                >
-                  <InputLabel
-                    ref={ref => {
-                      this.InputLabelRef = ref;
-                    }}
-                    htmlFor="outlined-age-simple"
-                  >
-                    Municipio
-                  </InputLabel>
-                  <Select
-                    className="select-origenes"
-                    value={this.state.municipioOrigen}
-                    onChange={this.handleChange}
-                    input={
-                      <OutlinedInput
-                        labelWidth={20}
-                        name="municipioOrigen"
-                        id="outlined-age-simple"
-                      />
-                    }
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenxxxty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
-                </FormControl>
+                <ASMD sendAsmd={this.getAsmd} />
               </div>
             </div>{' '}
           </div>
         </div>
         <div className="mapa-form">
           {' '}
-          {this.state.municipioOrigen ? <Maps /> : <div />}
+          {this.state.municipioOrigen && this.state.municipioDestino ? (
+            <Maps />
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     );

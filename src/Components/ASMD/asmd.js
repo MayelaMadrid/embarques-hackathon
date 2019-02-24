@@ -66,7 +66,7 @@ class ASMD extends Component {
       }
     });
 
-    this.props.sendAsmo(municipioDestino);
+    this.props.sendAsmd(municipioDestino);
 
     return suggestion.nombre;
   };
@@ -75,7 +75,6 @@ class ASMD extends Component {
 
   render() {
     let municipios = this.props.municipios;
-    console.log(municipios, this.state.municipioDestino);
     const { value, suggestions } = this.state;
 
     const inputProps = {
@@ -85,7 +84,6 @@ class ASMD extends Component {
     };
     return (
       <div>
-        {' '}
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}

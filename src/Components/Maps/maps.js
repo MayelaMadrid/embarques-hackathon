@@ -17,16 +17,15 @@ const Origen = ({ text }) => (
 class Maps extends Component {
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 23.6345005,
+      lng: -102.5527878
     },
-    zoom: 11
+    zoom: 5
   };
 
   render() {
     let locDestino = this.props.locDestino;
     let locOrigen = this.props.locOrigen;
-    console.log(locDestino, locOrigen);
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100%', width: '100%', borderRadius: '10px' }}>
@@ -41,8 +40,8 @@ class Maps extends Component {
             text="My Marker"
           />
           <Destino
-            lat={locDestino.latitud}
-            lng={locDestino.longitud}
+            lat={locDestino[0].latitud}
+            lng={locDestino[0].longitud}
             text="My Marker"
           />
         </GoogleMapReact>

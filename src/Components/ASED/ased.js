@@ -65,7 +65,6 @@ class ASED extends Component {
 
   render() {
     let municipios = this.props.municipios;
-    console.log(municipios, this.state.municipioDestino);
     const { value, suggestions } = this.state;
 
     const inputProps = {

@@ -75,7 +75,6 @@ class ASMO extends Component {
 
   render() {
     let municipios = this.props.municipios;
-    console.log(municipios, this.state.municipioOrigen);
     const { value, suggestions } = this.state;
 
     const inputProps = {

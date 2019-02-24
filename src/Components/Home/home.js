@@ -22,7 +22,6 @@ class Home extends Component {
     home: undefined
   };
   changeVista = name => {
-    console.log(name);
     this.setState({
       home: name
     });
@@ -32,7 +31,6 @@ class Home extends Component {
     this.props.logOut(nl);
   };
   render() {
-    console.log(this.state.home);
     let body;
     if (this.state.home === 'registro') {
       body = <Formulario />;
