@@ -13,15 +13,24 @@ import './embarque.css';
 
 class Embarque extends Component {
   state = {
-    embarques: [],
+    embarques: undefined,
     seleccionado: undefined
   };
 
   componentDidMount() {
-    this.props.getEmbarque();
+    this.props.getEmbarque().then(() => {
+      this.setState({ embarques: this.props.embarques });
+    });
   }
-  seleccionEmbarque = ev => {
-    this.setState({ seleccionado: ev.target.id });
+  seleccionTrailer = ev => {
+    let pro = this.state.embarques;
+    let approved = pro.filter(stu => stu.id === ev.target.id);
+    for (let i = 0; i < approved.length; i++) {
+      let index = pro.indexOf(approved[i]);
+      pro.splice(index, 1);
+    }
+    this.setState({ embarques: pro });
+
     this.props.guardarEmbarque(ev.target.id);
   };
   render() {
@@ -50,11 +59,12 @@ class Embarque extends Component {
     return (
       <div className="transportistaBackground">
         <div className="formTitle">
-          <i className="fas fa-truck" /> Seleccione un Embarque
+          <i className="fas fa-truck" /> Seleccione un Embarque para marcar como
+          recibido{' '}
         </div>
         <div className="formBody">
-          {this.props.embarques ? (
-            this.props.embarques.map((label, index) => {
+          {this.state.embarques ? (
+            this.state.embarques.map((label, index) => {
               return (
                 <Card style={styles.card}>
                   <CardActionArea>
@@ -77,13 +87,13 @@ class Embarque extends Component {
                       <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
                         <i className="fas fa-globe-americas" /> Origen:{' '}
                         <span style={{ color: '#2a122a' }}>
-                          {label.municipioOrigen.nombre}
+                          {label.nombreMunicipioOrigen}
                         </span>
                       </h4>
                       <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
                         <i class="fas fa-globe-africa" /> Destino{' '}
                         <span style={{ color: '#2a122a' }}>
-                          {label.municipioDestino.nombre}
+                          {label.nombreMunicipioDestino}
                         </span>
                       </h4>
                     </CardContent>
@@ -95,7 +105,7 @@ class Embarque extends Component {
                       size="large"
                       style={styles.acceptButton}
                     >
-                      Seleccionar
+                      Marcar como recibido
                     </button>
                   </CardActions>
                 </Card>
@@ -119,10 +129,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getEmbarque: () => {
-      return auth.getEmbarque(1)(dispatch);
+      return auth.getEmbarque(3)(dispatch);
     },
     guardarEmbarque: id => {
-      dispatch(saving.guardarEmbarque(id));
+      return auth.recibido()(dispatch);
     }
   };
 };

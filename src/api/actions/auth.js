@@ -89,6 +89,13 @@ export const getDispositivo = () => async dispatch => {
     payload: result
   });
 };
+export const recibido = id => async dispatch => {
+  const result = await services.recibido(id);
+  dispatch({
+    type: actionTypes.RECIBIDO,
+    payload: result
+  });
+};
 export const guardarSalida = (
   idEmbarque,
   idChofer,

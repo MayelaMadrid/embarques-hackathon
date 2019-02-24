@@ -11,7 +11,8 @@ const initialState = {
   embarques: undefined,
   dispositivos: undefined,
   guardaEmbarque: undefined,
-  salida: undefined
+  salida: undefined,
+  recibido: undefined
 };
 
 export default function callCenter(state = initialState, action) {
@@ -70,6 +71,11 @@ export default function callCenter(state = initialState, action) {
     case actionTypes.GUADAR_SALIDA:
       newState = Object.assign({}, state, {
         salida: action.payload
+      });
+      return newState;
+    case actionTypes.RECIBIDO:
+      newState = Object.assign({}, state, {
+        recibido: action.payload
       });
       return newState;
     default:

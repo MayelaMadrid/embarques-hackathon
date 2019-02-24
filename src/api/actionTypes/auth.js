@@ -9,3 +9,4 @@ export const GUARDAR_EMBARQUE = 'Api/login/GUARDAR_EMBARQUE';
 export const EMBARQUE = 'Api/login/EMBARQUE';
 export const DISPOSITIVO = 'Api/login/DISPOSITIVO';
 export const GUADAR_SALIDA = 'Api/login/GUADAR_SALIDA';
+export const RECIBIDO = 'Api/login/RECIBIDO';
