@@ -5,7 +5,7 @@ import * as login from '../../actions/auth';
 import './home.css';
 import Carousel from 'nuka-carousel';
 import Formulario from '../Formulario/formulario';
-import ListaEmbarques from '../Formulario/formulario';
+import ListaEmbarques from '../ListaEmbarques/listaEmbarques';
 import Salidas from '../Salidas/salidas';
 class Home extends Component {
   state = {
@@ -66,7 +66,9 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label><i className="fas fa-clipboard-list"></i> Registrar embarque</label>
+              <label>
+                <i className="fas fa-clipboard-list" /> Registrar embarque
+              </label>
             </div>
             <div
               className="opcion"
@@ -75,7 +77,9 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label><i className="fas fa-tasks"></i> Revisar embarques</label>
+              <label>
+                <i className="fas fa-tasks" /> Revisar embarques
+              </label>
             </div>
             <div
               className="opcion"
@@ -84,11 +88,13 @@ class Home extends Component {
               }}
             >
               {' '}
-              <label><i className="fas fa-truck-loading"></i> Salida de embarque</label>
+              <label>
+                <i className="fas fa-truck-loading" /> Salida de embarque
+              </label>
             </div>
             <div className="lo" onClick={this.logOut}>
               <label>
-                <i className="fas fa-sign-out-alt"></i> Cerrar sesión
+                <i className="fas fa-sign-out-alt" /> Cerrar sesión
               </label>
             </div>
           </div>

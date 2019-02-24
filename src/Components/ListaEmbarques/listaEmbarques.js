@@ -10,7 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import img from '../Login/img/road.jpeg';
 import { Redirect } from 'react-router-dom';
 import * as login from '../../actions/auth';
-import './login.css';
+import './listaEmbarques.css';
 import Button from '@material-ui/core/Button';
 
 class ListaEmbarques extends Component {
