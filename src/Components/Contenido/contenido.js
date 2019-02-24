@@ -170,7 +170,7 @@ class Contenido extends Component {
                   <CardActionArea>
                     <CardMedia
                       style={styles.media}
-                      image={this.productImage(index)}
+                      image={this.productImage(k)}
                       title="Contemplative Reptile"
                     />
                     <CardContent>
