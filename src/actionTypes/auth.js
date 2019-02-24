@@ -17,3 +17,11 @@ export const IDMUNDESTINO = 'Auth/IDMUNDESTINO';
 export const IDAGENTE = 'Auth/IDAGENTE';
 
 export const EMBARQUE_DETALLES = 'Auth/EMBARQUE_DETALLES';
+
+export const GUARDAR_CHOFER = 'Auth/GUARDAR_CHOFER';
+
+export const EMBARQUE = 'Auth/EMBARQUE';
+
+export const DISPOSITIVO = 'Auth/DISPOSITIVO';
+
+export const FECHA_SALIDA = 'Auth/FECHA_SALIDA';

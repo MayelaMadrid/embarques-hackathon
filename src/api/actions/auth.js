@@ -89,3 +89,20 @@ export const getDispositivo = () => async dispatch => {
     payload: result
   });
 };
+export const guardarSalida = (
+  idEmbarque,
+  idChofer,
+  idDispositivo,
+  fechaSalida
+) => async dispatch => {
+  const result = await services.guardarSalida(
+    idEmbarque,
+    idChofer,
+    idDispositivo,
+    fechaSalida
+  );
+  dispatch({
+    type: actionTypes.GUADAR_SALIDA,
+    payload: result
+  });
+};

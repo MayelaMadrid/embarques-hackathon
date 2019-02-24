@@ -9,7 +9,11 @@ const initialState = {
   idOrigen: undefined,
   idDestino: undefined,
   idAgente: undefined,
-  embarqueDetalles: undefined
+  embarqueDetalles: undefined,
+  idChofer: undefined,
+  idEmbarque: undefined,
+  idDispositivo: undefined,
+  fechaSalida: undefined
 };
 
 function Auth(state = initialState, action) {
@@ -54,6 +58,22 @@ function Auth(state = initialState, action) {
     case auth.EMBARQUE_DETALLES:
       return Object.assign({}, state, {
         embarqueDetalles: action.payload
+      });
+    case auth.GUARDAR_CHOFER:
+      return Object.assign({}, state, {
+        idChofer: action.payload
+      });
+    case auth.EMBARQUE:
+      return Object.assign({}, state, {
+        idEmbarque: action.payload
+      });
+    case auth.DISPOSITIVO:
+      return Object.assign({}, state, {
+        idDispositivo: action.payload
+      });
+    case auth.FECHA_SALIDA:
+      return Object.assign({}, state, {
+        fechaSalida: action.payload
       });
     default:
       return state;
