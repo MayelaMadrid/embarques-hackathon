@@ -26,6 +26,7 @@ class Maps extends Component {
   render() {
     let locDestino = this.props.locDestino;
     let locOrigen = this.props.locOrigen;
+
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100%', width: '100%', borderRadius: '10px' }}>
