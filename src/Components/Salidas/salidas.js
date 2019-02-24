@@ -88,7 +88,7 @@ class Salidas extends Component {
                 {getStepContent(activeStep)}
               </Typography>
 
-              <div>
+              <div className="buttonSpaced">
                 <br />
                 <Button
                   disabled={activeStep === 0}

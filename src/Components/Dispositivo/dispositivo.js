@@ -9,11 +9,17 @@ import Button from '@material-ui/core/Button';
 import img from '../Login/img/road.jpeg';
 import * as auth from '../../api/actions/auth';
 import './dispositivo.css';
+import TextField from '@material-ui/core/TextField';
 
 class Dispositivo extends Component {
 
   state = {
-    dispositivos: []
+    dispositivos: [],
+    selectedDate: new Date('2014-08-18T21:11:54')
+  };
+
+  handleDateChange = date => {
+    this.setState({ selectedDate: date });
   };
 
   componentDidMount() {
@@ -60,14 +66,8 @@ class Dispositivo extends Component {
                       <i className="fab fa-slack-hash"></i> Folio: <span style={{color: '#2a122a'}}>{label.id}</span>
                     </h3>
                     <h3 style={{ color: 'purple', alignContent: 'flex-end' }}>
-                      <i className="fas fa-truck-moving"></i> Transporte: <span style={{color: '#2a122a'}}>{label.idTrailer}</span>
+                      <i class="fas fa-satellite-dish"></i> Nombre: <span style={{color: '#2a122a'}}>{label.nombre}</span>
                     </h3>
-                    <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
-                      <i className="fas fa-globe-americas"></i> Origen: <span style={{color: '#2a122a'}}>{label.nombreMunicipioOrigen}</span> 
-                    </h4>
-                    <h4 style={{ color: 'purple', alignContent: 'flex-end' }}>
-                      <i class="fas fa-globe-africa"></i> Destino <span style={{color: '#2a122a'}}>{label.nombreMunicipioDestino}</span>
-                    </h4>
                   </CardContent>
                 </CardActionArea>
                 <CardActions style={{ justifyContent: 'center' }}>
@@ -80,8 +80,20 @@ class Dispositivo extends Component {
           }):
           <div></div>
         }
-        </div>
       </div>
+      <div className="fechaSalida">
+        <TextField
+          id="date"
+          label="Fecha de Salida"
+          type="date"
+          defaultValue="2019-02-24"
+          style={{width: 250}}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      </div>
+    </div>
     );
   }
 }
