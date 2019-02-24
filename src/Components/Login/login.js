@@ -48,12 +48,11 @@ class Login extends Component {
     } else {
       this.props.onLogin(this.state.username, this.state.password).then(() => {
         let authInfo = this.props.auth;
-        console.log('fgdf', authInfo[0].success);
-        if (authInfo && authInfo[0].success === true) {
-          console.log('fgdf');
-          this.props.setUser('25');
+
+        if (authInfo && authInfo.idUsuario) {
+          this.props.setUser(authInfo.idUsuario);
         }
-        if (!authInfo.success) {
+        if (authInfo && !authInfo.idUsuario) {
           this.setState({
             errorLogin: true,
             mensajeError: 'Usuario o contraseña incorrecta.'
@@ -74,6 +73,7 @@ class Login extends Component {
     }
   };
   render() {
+    console.log(this.state.username, this.state.password);
     let authInfo = this.props.auth;
     // let errorLogin = this.state.errorLogin;
     console.log(authInfo, this.props.userid, localStorage.getItem('userid'));

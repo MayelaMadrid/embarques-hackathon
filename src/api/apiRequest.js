@@ -1,5 +1,5 @@
 import axios from 'axios';
-const URL = 'https://www.mocky.io/v2';
+const URL = 'http://172.16.0.91:8082';
 let authToken;
 
 export const apiRequest = async (path, method, data, params, headers) => {
@@ -10,9 +10,7 @@ export const apiRequest = async (path, method, data, params, headers) => {
       data,
       method,
       params,
-      headers: Object.assign(headers || {}, {
-        authorization: `Bearer `
-      })
+      headers: Object.assign(headers || {}, {})
     };
     return await axios.request(requestData);
   } catch (err) {

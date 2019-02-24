@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { connect } from 'react-redux';
 
 const Destino = ({ text }) => (
   <div>
@@ -23,20 +24,44 @@ class Maps extends Component {
   };
 
   render() {
+    let locDestino = this.props.locDestino;
+    let locOrigen = this.props.locOrigen;
+    console.log(locDestino, locOrigen);
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: '100%', width: '100%', borderRadius: '10px' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyBQ8W6NaSJTVXlygy5et73HL41ah8WuCPs' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <Destino lat={59.955413} lng={30.337844} text="My Marker" />
-          <Origen lat={59.955413} lng={30.444444} text="My Marker" />
+          <Origen
+            lat={locOrigen[0].latitud}
+            lng={locOrigen[0].longitud}
+            text="My Marker"
+          />
+          <Destino
+            lat={locDestino.latitud}
+            lng={locDestino.longitud}
+            text="My Marker"
+          />
         </GoogleMapReact>
       </div>
     );
   }
 }
 
-export default Maps;
+const mapStateToProps = state => {
+  return {
+    locOrigen: state.Auth.origen,
+    locDestino: state.Auth.destino
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Maps);

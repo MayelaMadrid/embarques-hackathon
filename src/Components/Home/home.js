@@ -102,7 +102,7 @@ class Home extends Component {
           </div>
         </div>
         <div className="body">{body}</div>
-        <Maps />
+        {/* <Maps /> */}
       </div>
     );
   }
