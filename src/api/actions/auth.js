@@ -25,10 +25,24 @@ export const getMunicipios = idEstado => async dispatch => {
   });
 };
 
-export const getTrailers = () => async dispatch => {
-  const result = await services.getTrailers();
+export const getTrailers = idEstado => async dispatch => {
+  const result = await services.getTrailers(idEstado);
   dispatch({
     type: actionTypes.TRAILERS,
     payload: result
   });
-}
+};
+export const getAgentesExportacion = () => async dispatch => {
+  const result = await services.getAgentesExportacion();
+  dispatch({
+    type: actionTypes.AGENTES,
+    payload: result
+  });
+};
+export const getProductos = () => async dispatch => {
+  const result = await services.getProductos();
+  dispatch({
+    type: actionTypes.PRODUCTOS,
+    payload: result
+  });
+};

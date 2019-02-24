@@ -13,7 +13,7 @@ import Routes from './routes';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 const theme = createMuiTheme({
   palette: {
-    primary: { main: '#1DE9B6' },
+    primary: { main: '#27C657' },
     secondary: {
       main: '#ffffff'
     }

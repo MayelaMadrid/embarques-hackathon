@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './formulario.css';
+import './salidas.css';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -10,26 +10,25 @@ import Typography from '@material-ui/core/Typography';
 
 import Trailer from '../Trailer/trailer';
 import Origenes from '../Origenes/origenes';
-import Contenido from '../Contenido/contenido';
 
 function getSteps() {
-  return ['Modelo del embarque', 'Origen y destino.', 'Contenido de embarque.'];
+  return ['Seleccionar embarque.', 'Asignar chofer.', 'Asignar dispositivo'];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Trailer />;
+      return <Origenes />;
     case 1:
       return <Origenes />;
     case 2:
-      return <Contenido />;
+      return <Origenes />;
     default:
       return 'Unknown step';
   }
 }
 
-class Formulario extends Component {
+class Salidas extends Component {
   state = {
     activeStep: 0,
     skipped: new Set()
@@ -136,4 +135,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Formulario);
+)(Salidas);
