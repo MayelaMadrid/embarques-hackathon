@@ -24,3 +24,11 @@ export const getMunicipios = idEstado => async dispatch => {
     payload: result
   });
 };
+
+export const getTrailers = () => async dispatch => {
+  const result = await services.getTrailers();
+  dispatch({
+    type: actionTypes.TRAILERS,
+    payload: result
+  });
+}

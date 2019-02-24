@@ -41,7 +41,7 @@ class Home extends Component {
     } else {
       body = (
         <Carousel autoplay autoplayInterval={1000}>
-          <img src="https://www.google.com.mx/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjzv5jDj9LgAhUpi1QKHYUFAawQjRx6BAgBEAU&url=https%3A%2F%2Fwww.purina.es%2Fgatos%2Fetapas-clave-de-su-vida%2Fgatitos%2Fnuevo-gatito-en-casa&psig=AOvVaw0THCzBw0a0tkGX1Wmw_tbF&ust=1551020436557136" />
+          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1" />
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2" />
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3" />
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4" />

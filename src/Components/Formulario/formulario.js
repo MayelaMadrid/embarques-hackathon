@@ -14,9 +14,9 @@ import Exportacion from '../Exportacion/exportacion';
 
 function getSteps() {
   return [
-    'Información del embarque',
-    'Seleccione origen y destino.',
-    'Agente de exportacion y contenido de embarque.'
+    'Modelo del embarque',
+    'Origen y destino.',
+    'Contenido de embarque.'
   ];
 }
 
@@ -94,23 +94,29 @@ class Formulario extends Component {
                 {getStepContent(activeStep)}
               </Typography>
               <div>
-                <br />
-                <Button
-                  disabled={activeStep === 0}
-                  onClick={this.handleBack}
-                  className="{classes.button}"
-                >
-                  Anterior
-                </Button>
+                <Typography className="{classes.instructions}">
+                  {getStepContent(activeStep)}
+                </Typography>
+                <div>
+                  <br/>
+                  <Button
+                    disabled={activeStep === 0}
+                    onClick={this.handleBack}
+                    className="{classes.button}"
+                    style={{backgroundColor:'#85ca85',color:'#fff',fontWeight:'bold', marginRight:'5px'}}
+                  >
+                    Anterior
+                  </Button>
 
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={this.handleNext}
-                  className="{classes.button}"
-                >
-                  {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente'}
-                </Button>
+                  <Button
+                    variant="contained"
+                    style={{backgroundColor:'#5cb85c',color:'#fff',fontWeight:'bold'}}
+                    onClick={this.handleNext}
+                    className="{classes.button}"
+                  >
+                    {activeStep === steps.length - 1 ? 'Terminar' : 'Siguiente'}
+                  </Button>
+                </div>
               </div>
             </div>
           )}
